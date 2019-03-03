@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Writers | Blog</title>
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="{% url 'home' %}">
+				<h3 class="text-dark">T<strong class="text-info">News</strong></h3>
+			</a>
+			<button class="navbar-toggler" data-target="#mainNav" data-toggle="collapse"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="mainNav">
+				
+				<ul class="navbar-nav ml-auto">
+					
+					{% if user.is_authenticated %}					
+																		
+						<li class="nav-item mx-2"><a href="" class="nav-link text-info">Log out</a></li>
+						
+						<li class="nav-item mx-2"><p class="nav-link">Welcome <strong>{{ user.username|capfirst }}</strong></p></li>
+										
+					{% else %}
+					
+						<li class="nav-item"><a href="" class="nav-link text-info">Sign up</a></li>
+						
+						<li class="nav-item"><a href="" class="nav-link text-info">Login</a></li>
+					
+					{% endif %}
+					
+				</ul>
+				
+			</div>
+			
+		</div>
+		
+	</nav>
+
+	{% block body_block %}
+	
+		<h1>Hello world from base.html. The main base file</h1>
+		
+		<footer class="bg-secondary text-center">
+			
+			<p class="m-0 py-4">Created by
+				
+				<strong>
+					
+					<a href="https://brianmwevi.github.io" class="card-link">Brian Mwevi</a>
+					
+				</strong>
+				
+				<br>
+				
+				Copyrights &copy; 2018
+				
+			</p>
+					
+			<p class="m-0"></p>
+			
+		</footer>
+	
+	{% endblock body_block %}
+	
+
+
+	
+	<script src="{% static "js/jquery.min.js" %}"></script>
+	
+	<script src="{% static "js/popper.min.js" %}"></script>
+	
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+	<script src="{% static "js/main.js" %}"></script>
+
+	<script>
+
+		// using jQuery
+
+		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+	</script>
+
+	
+</body>
+
+</html>
+ 
