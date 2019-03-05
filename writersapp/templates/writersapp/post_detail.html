@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body_block%}
+<section class="temp-margin">
+	<div class="container">
+		<div class="row">
+				<div class="col-sm-7">
+				
+					<h5 class="text-info">{{ object.title }}</h5>
+					<small><strong>By <a href="#" class="card-link text-dark">{{ object.author|capfirst }}</a> on {{ object.pub_date }}</strong></small>
+					<p class="text-justify">{{ object.detail_html }}</p>
+				</div>
+				<div class="col-sm-12 mx-auto">
+					<div class="jumbotron">
+						<h4>No news found!</h4>
+					</div>
+				</div>	
+		</div>
+	</div>
+</section>
+{% endblock body_block%}

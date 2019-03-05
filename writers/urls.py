@@ -5,6 +5,6 @@ from writersapp.views import PostListView
 
 urlpatterns = [
 	path('',PostListView.as_view(), name='home'),
-	path('', include('writersapp.urls', namespace='writersapp')),
+	path('post/', include('writersapp.urls', namespace='writersapp')),
     path('admin/', admin.site.urls),
 ]

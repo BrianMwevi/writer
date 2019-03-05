@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone 
-# from django.urls import 
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
 
 
 from django.contrib.auth import get_user_model
@@ -26,6 +27,11 @@ class Post(models.Model):
 	class Meta:
 		verbose_name = "Post"
 		verbose_name_plural = "Posts"
+
+	def get_absolute_url(self):
+		# return HttpResponseRedirect('home')
+		return reverse_lazy("writersapp:post_detail", kwargs={"pk":self.pk})
+
 
 	def __str__(self):
 		return self.title
