@@ -20,11 +20,10 @@ class PostCreateView(CreateView):
 	model = Post
 	fields = ['title', 'detail']
 	template_name = 'writersapp/post_create.html'
-	# success_url = "home"
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user 
-		super().form_valid(form)
+		return super().form_valid(form)
 
 class PostUpdateView(UpdateView):
 	pass
