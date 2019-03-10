@@ -1,19 +1,59 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block body_block %}
-	<div class="container temp-margin">
+	<div class="container-fluid temp-margin">
 		<div class="row">
-			<div class="col-sm-6 mx-auto">
-				{% for post in object_list %}
-					<div class="card bg-info text-white">
-						<div class="card-text">
-							<a href="{% url 'writersapp:post_detail' pk=post.pk %}">
-								<p>{{ post }}</p>
-							</a>
-						</div>
+			<div class="col-sm-4 offset-lg-1">
+				<div class="card border-0">
+					<div class="card-img home1">
+
 					</div>
-				{% endfor %}
+					<div class="card-text mx-5 pl-5">
+						<h5 class="m-0">Hello world of Kenya. This is a simple title</h5>
+						<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus, cum mollitia fugit ut repellat.<br><br>Brian Mwevi <br>Sept 29</small>
+					</div>
+				</div>				
+			</div>
+			<div class="col-sm-3">
+				<div class="media">
+					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
+					<div class="media-body pl-2">
+						<h5>This is column 4 for the post home page. Let's keep intouch</h5>
+						<small>Brian Mwevi <br>Dec 21</small>
+					</div>
+				</div>
+				<div class="media">
+					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
+					<div class="media-body pl-2">
+						<h5>This is column 4 for the post home page. Let's keep intouch</h5>
+						<small>Brian Mwevi <br>Dec 21</small>
+					</div>
+				</div>
+				<div class="media">
+					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
+					<div class="media-body pl-2">
+						<h5>This is column 4 for the post home page. Let's keep intouch</h5>
+						<small>Brian Mwevi <br>Dec 21</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="card border-0">
+					<div class="card-img home2">
+
+					</div>
+					<div class="card-text">
+						<h5 class="w-75">Hello world of Kenya. This is a simple title</h5>
+						<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus, cum mollitia fugit ut repellat.<br><br>Brian Mwevi <br>Sept 29</small>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-auto offset-lg-9">
+				<button class="btn bg-success btn-custom text-uppercase float-right">See all Features <i class="fa fa-chevron-right"></i></button>
+			</div>
+		</div>
+		<hr class="w-75">
 	</div>
 {% endblock body_block %}

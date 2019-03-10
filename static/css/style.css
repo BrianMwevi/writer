@@ -10,6 +10,21 @@
 	padding-top: 6rem;
 }
 
+.home1 {
+	background: url(../img/home2.jpg);
+	height: 150px;
+	background-position: fixed;
+	background-attachment: center center;
+}
+
+.home2 {
+	background: url(../img/home2.jpg);
+	height: 170px;
+	background-position: fixed;
+	background-attachment: center center;
+}
+
+
 .gradient {
 	background:linear-gradient(to left,rgba(126, 213, 111, .7),rgba(40, 180, 133, .7));
 }

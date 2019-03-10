@@ -30,3 +30,6 @@ class PostUpdateView(UpdateView):
 
 class PostDeleteView(DeleteView):
 	pass
+
+# class ChangePassView(UpdateView):
+# 	model = 
