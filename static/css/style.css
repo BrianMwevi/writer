@@ -159,3 +159,45 @@
 .temp-margin {
 	margin-top: 5rem;
 }
+
+.popup {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.popup .popup-menu {
+	visibility: hidden;
+    width:250px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .popup-menu::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
