@@ -27,7 +27,7 @@ class DraftListView(ListView):
 	def get_queryset(self):
 		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
 
-class PostDetailView(DeleteView):
+class PostDetailView(DetailView):
 	model = Post
 	template_name = 'writersapp/post_detail.html'
 	def get_context_data(self, **kwargs):
@@ -49,6 +49,7 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
 	model = Post
 	fields = ['title', 'detail']
+	template_name = 'writersapp/post_update.html'
 
 class PostPublishView(UpdateView):
 	model = Post
@@ -58,6 +59,15 @@ class PostPublishView(UpdateView):
 	def form_valid(self, form):
 		form.instance.pub_date = timezone.now()
 		return super().form_valid(form)
+class PostPublishedview(ListView):
+	def get_queryset(self, **kwargs):
+		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	template_name = 'writersapp/published_list.html'
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+	    return context
 
 
 

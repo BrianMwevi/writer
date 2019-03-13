@@ -31,7 +31,7 @@
 								<div id="popupMenu" class="popup-menu">
 									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:post_create' %}"><small>New story</small></a>
 									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:drafts' %}"><small>Drafts</small> <span class="badge badge-info badge-pill">{{ user_draft.count }}</span></a>
-									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#"><small>Published</small> <span class="badge badge-info badge-pill">{{ user_pub_posts.count }}</span></a>
+									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:published' %}"><small>Published</small> <span class="badge badge-info badge-pill">{{ user_pub_posts.count }}</span></a>
 									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#"><small>Settings</small></a>
 									<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#"><small>Sign out</small></a>
 								</div>

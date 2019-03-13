@@ -182,15 +182,6 @@
     animation: fadeIn 1s;
 }
 
-.popup .popup-menu::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-}
-
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
