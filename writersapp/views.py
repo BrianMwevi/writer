@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils import timezone
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -10,10 +11,30 @@ from .forms import PostForm
 class PostListView(ListView):
 	model = Post
 	template_name = 'writersapp/index.html'
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+	    return context
+
+class DraftListView(ListView):
+	template_name = 'writersapp/draft_list.html'
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+	    return context
+	def get_queryset(self):
+		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
 
 class PostDetailView(DeleteView):
 	model = Post
 	template_name = 'writersapp/post_detail.html'
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+	    return context
 
 
 class PostCreateView(CreateView):
@@ -26,7 +47,19 @@ class PostCreateView(CreateView):
 		return super().form_valid(form)
 
 class PostUpdateView(UpdateView):
-	pass
+	model = Post
+	fields = ['title', 'detail']
+
+class PostPublishView(UpdateView):
+	model = Post
+	fields = ['title', 'detail']
+	template_name = 'writersapp/post_detail.html'
+
+	def form_valid(self, form):
+		form.instance.pub_date = timezone.now()
+		return super().form_valid(form)
+
+
 
 class PostDeleteView(DeleteView):
 	pass

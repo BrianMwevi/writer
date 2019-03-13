@@ -3,17 +3,24 @@
 <section class="temp-margin">
 	<div class="container">
 		<div class="row">
-				<div class="col-sm-7">
-				
-					<h5 class="text-info">{{ object.title }}</h5>
-					<small><strong>By <a href="#" class="card-link text-dark">{{ object.author|capfirst }}</a> on {{ object.pub_date }}</strong></small>
-					<p class="text-justify">{{ object.detail_html }}</p>
-				</div>
-				<div class="col-sm-12 mx-auto">
-					<div class="jumbotron">
-						<h4>No news found!</h4>
+			<div class="col-sm-12">
+				{% if post.pub_date %}
+				<h1 class="text-info">{{ object.title }}</h1>
+				<p class="text-justify">{{ object.detail_html }}</p>
+				{% else %}
+				<form action="{% url 'writersapp:post_update' pk=post.pk %}" method="POST">{% csrf_token %}
+					<div class="form-group">
+						<input type="text" class="form-control" value="{{ post.title }}" name="title">
 					</div>
-				</div>	
+					<div class="form-group">
+						<textarea name="detail" class="form-control">{{ post.detail }}</textarea>
+					</div>
+					<button type="submit" class="btn btn-custom text-dark">Save</button>
+					<a class="btn btn-custom text-dark" href="{% url 'writersapp:post_publish' pk=post.pk %}">Publish</a>
+				</form>
+				{% endif %}
+				
+			</div>
 		</div>
 	</div>
 </section>

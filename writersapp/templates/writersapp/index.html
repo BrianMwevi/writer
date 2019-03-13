@@ -3,57 +3,135 @@
 {% block body_block %}
 	<div class="container-fluid temp-margin">
 		<div class="row">
-			<div class="col-sm-4 offset-lg-1">
+			<div class="col-sm-4 offset-lg-1 mb-4">
 				<div class="card border-0">
 					<div class="card-img home1">
 
 					</div>
 					<div class="card-text mx-5 pl-5">
 						<h6 class="m-0"><strong>Hello world of Kenya. This is a simple title</strong></h6>
-						<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus, cum mollitia fugit ut repellat.<br><br>Brian Mwevi <br>Sept 29</small>
+						<small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus, cum mollitia fugit ut repellat.<br><br><span class="text-dark">Brian Mwevi </span><br>Sept 29 - 10 min read<i class="pl-2 fa fa-star"></i></small>
 					</div>
 				</div>				
 			</div>
-			<div class="col-sm-3">
+
+			<!-- SECTION 2 -->
+			<div class="col-sm-3 mb-4">
 				<div class="media">
 					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
-					<div class="media-body pl-2">
+					<div class="media-body pl-4">
 						<h6><strong>This is column 4 for the post home page. Let's keep intouch</strong></h6>
-						<small>Brian Mwevi <br>Dec 21</small>
+						<small>Brian Mwevi <br>Dec 21 - 10 min read<i class="pl-2 fa fa-star"></i></small>
 					</div>
 				</div>
 				<div class="media pt-2">
 					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
-					<div class="media-body pl-2">
+					<div class="media-body pl-4">
 						<h6><strong>This is column 4 for the post home page. Let's keep intouch</strong></h6>
-						<small>Brian Mwevi <br>Dec 21</small>
+						<small>Brian Mwevi <br>Dec 21 - 10 min read<i class="pl-2 fa fa-star"></i></small>
 					</div>
 				</div>
 				<div class="media pt-2">
 					<img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;">
-					<div class="media-body pl-2">
+					<div class="media-body pl-4">
 						<h6><strong>This is column 4 for the post home page. Let's keep intouch</strong></h6>
-						<small>Brian Mwevi <br>Dec 21</small>
+						<small>Brian Mwevi <br>Dec 21 - 10 min read<i class="pl-2 fa fa-star"></i></small>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-3 mb-4">
 				<div class="card border-0">
 					<div class="card-img home2">
 
 					</div>
 					<div class="card-text">
 						<h6 class="w-75"><strong>Hello world of Kenya. This is a simple title</strong></h6>
-						<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, natus, cum mollitia fugit ut repellat.<br><br>Brian Mwevi <br>Sept 29</small>
+						<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Brian Mwevi <br>Sept 29 - 10 min read<i class="pl-2 fa fa-star"></i></small>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<!-- SECTION 3 -->
+	<div class="container">
 		<div class="row">
-			<div class="col-sm-auto offset-lg-9">
-				<button class="btn bg-success btn-custom text-uppercase float-right">See all Features <i class="fa fa-chevron-right"></i></button>
+			<div class="col-sm 12">
+				<a class="btn btn-sm btn-custom text-uppercase float-right">See all Features <i class="fa fa-chevron-right"></i></a>
+				
 			</div>
 		</div>
-		<hr class="w-75">
+		<hr>
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="media text-muted mb-4">
+					<div class="media-body">
+						<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
+						<h6 class="text-dark"><strong>Digital Nomads Are Not The Future</strong></h6>
+						<small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><i class="fa fa-ellipsis-h float-right px-2"></i><i class="fa fa-bookmark-o float-right"></i><span class="text-dark">Brian Mwevi</span><br>Feb 28</small>
+					</div>
+					<img class="img-fluid" src="{% static "img/home2.jpg" %}" alt="Article image" style="width:120px; height:120px">
+				</div>
+				<div class="media text-muted mb-4">
+					<div class="media-body">
+						<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
+						<h6 class="text-dark"><strong>Digital Nomads Are Not The Future</strong></h6>
+						<small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><i class="fa fa-ellipsis-h float-right px-2"></i><i class="fa fa-bookmark-o float-right"></i><span class="text-dark">Brian Mwevi</span><br>Feb 28</small>
+					</div>
+					
+					<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
+				</div>
+				<div class="media text-muted mb-4">
+					<div class="media-body">
+						<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
+						<h6 class="text-dark"><strong>Digital Nomads Are Not The Future</strong></h6>
+						<small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><i class="fa fa-ellipsis-h float-right px-2"></i><i class="fa fa-bookmark-o float-right"></i><span class="text-dark">Brian Mwevi</span><br>Feb 28</small>
+					</div>
+					<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
+				</div>
+				<div class="media text-muted mb-4">
+					<div class="media-body">
+						<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
+						<h6 class="text-dark"><strong>Digital Nomads Are Not The Future</strong></h6>
+						<small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><i class="fa fa-ellipsis-h float-right px-2"></i><i class="fa fa-bookmark-o float-right"></i><span class="text-dark">Brian Mwevi</span><br>Feb 28</small>
+					</div>
+					<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
+				</div>
+			</div>
+			<div class="col-sm-4 bg-light px-0">
+				<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid d-block w-100 h-25">
+				<div class="media px-4 py-2">
+					<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" style="width:40px; height:40px">
+					<div class="media-body">
+						<p class="pl-3 mb-0"><strong>The Necessary Skills for Space colonization</strong></p>
+						<small class="pl-3">Melkizedek Owour in Tunapanda...</small><br>
+						<small class="text-muted pl-3">An hour ago - 7 min read</small>
+					</div>
+				</div>
+				<div class="media px-4 py-2">
+					<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" style="width:40px; height:40px">
+					<div class="media-body">
+						<p class="pl-3 mb-0"><strong>The Necessary Skills for Space colonization</strong></p>
+						<small class="pl-3">Melkizedek Owour in Tunapanda...</small><br>
+						<small class="text-muted pl-3">An hour ago - 7 min read</small>
+					</div>
+				</div>
+				<div class="media px-4 py-2">
+					<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" style="width:40px; height:40px">
+					<div class="media-body">
+						<p class="pl-3 mb-0"><strong>The Necessary Skills for Space colonization</strong></p>
+						<small class="pl-3">Melkizedek Owour in Tunapanda...</small><br>
+						<small class="text-muted pl-3">An hour ago - 7 min read</small>
+					</div>
+				</div>
+				<div class="media px-4 py-2">
+					<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" style="width:40px; height:40px">
+					<div class="media-body">
+						<p class="pl-3 mb-0"><strong>The Necessary Skills for Space colonization</strong></p>
+						<small class="pl-3">Melkizedek Owour in Tunapanda...</small><br>
+						<small class="text-muted pl-3">An hour ago - 7 min read</small>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 {% endblock body_block %}

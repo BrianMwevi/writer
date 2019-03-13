@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+		{% if not post_list %}
+			<div class="container temp-margin">
+				<div class="text-center">
+					<div class="jumbotron">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="py-4">No Drafts</h2>
+								<a href="{% url 'post_create' %}"><button class="btn btn-info">New Story</button></a>
+							</div>
+						</div>
+					</div>
+					{% if latest_post %}
+						<div class="container bg-light p-2 temp-margin">
+							<h4 class="py-4">Your latest stories</h4>
+							<div class="row">
+								{% for post in latest_post %}
+									<div class="col-md-4 text-left">
+										<a href="{% url 'post_detail' pk=post.pk %}" class="card-link text-dark">
+											<div class="card">
+											<div class="card-header  bg-info">
+												<h5>{{ post.title }}</h5>
+											</div>
+											<div class="card-body">
+												<p>{{ post.text|truncatechars:100 }}</p>
+											</div>
+											<div class="card-footer">
+												<small class="card-text text-muted">Published on {{ post.published_date|date:'D m, Y' }}</small>
+											</div>
+										</div>
+										</a>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% else %}
+			<div class="container-fluid temp-margin">
+				<div class="row">
+					{% for post in post_list %}
+					<div class="col-md-4">
+						<a class="card-link text-dark" href="">
+							<div class="card post-text card-outline-danger mt-3">
+								<div class="card-body">
+									<div class="card-title">
+										<p class="text-muted default_text">{{post.created_date|timesince }} since created</p>
+										<h5><b>{{ post.title }}</b></h5>
+									</div>
+									<hr>
+									<p class="card-text">{{ post.text|truncatechars:250 }}</p>
+									<small class="card-text text-muted text-capitalize"> {{ post.author }} {{ post.created_date|date:'D m, Y' }}</small>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+
+{% endblock body_block %}

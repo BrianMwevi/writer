@@ -29,9 +29,7 @@ class Post(models.Model):
 		verbose_name_plural = "Posts"
 
 	def get_absolute_url(self):
-		# return HttpResponseRedirect('home')
 		return reverse_lazy("writersapp:post_detail", kwargs={"pk":self.pk})
-
 
 	def __str__(self):
 		return self.title
