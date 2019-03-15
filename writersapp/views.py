@@ -23,6 +23,7 @@ class DraftListView(ListView):
 	    context = super().get_context_data(**kwargs)
 	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
 	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+	    context['latest_post'] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False).order_by('-created_date')[:3]
 	    return context
 	def get_queryset(self):
 		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
@@ -65,7 +66,7 @@ class PostPublishedview(ListView):
 	template_name = 'writersapp/published_list.html'
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)
-	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
+	    context["user_pub_posts"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False).order_by("-pub_date")
 	    context["user_draft"] = Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
 	    return context
 

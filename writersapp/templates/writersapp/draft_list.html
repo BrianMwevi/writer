@@ -8,7 +8,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<h2 class="py-4">No Drafts</h2>
-								<a href="{% url 'post_create' %}"><button class="btn btn-info">New Story</button></a>
+								<a href="{% url 'writersapp:post_create' %}"><button class="btn btn-custom">New Story</button></a>
 							</div>
 						</div>
 					</div>
@@ -18,16 +18,16 @@
 							<div class="row">
 								{% for post in latest_post %}
 									<div class="col-md-4 text-left">
-										<a href="{% url 'post_detail' pk=post.pk %}" class="card-link text-dark">
+										<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-dark">
 											<div class="card">
-											<div class="card-header  bg-info">
+											<div class="card-header gradient">
 												<h5>{{ post.title }}</h5>
 											</div>
 											<div class="card-body">
-												<p>{{ post.text|truncatechars:100 }}</p>
+												<p>{{ post.detail|truncatechars:100 }}</p>
 											</div>
 											<div class="card-footer">
-												<small class="card-text text-muted">Published on {{ post.published_date|date:'D m, Y' }}</small>
+												<small class="card-text text-muted">Published on {{ post.pub_date|date:'D m, Y' }}</small>
 											</div>
 										</div>
 										</a>
