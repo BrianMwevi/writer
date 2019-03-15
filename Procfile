@@ -1,1 +1,1 @@
-web: gunicorn writers.wsgi
+web: gunicorn writers.wsgi --log-file -
