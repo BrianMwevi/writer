@@ -4,11 +4,6 @@ Django==2.1.5
 django-bootstrap4==0.0.7
 django-braces==1.13.0
 django-heroku==0.3.1
-# django-livereload-server==0.3.2
-
 gunicorn==19.9.0
-
-mikasa==0.0.3
 misaka==2.1.1
-
 whitenoise==4.1.2
