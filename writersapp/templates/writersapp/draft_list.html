@@ -39,20 +39,20 @@
 				</div>
 			</div>
 		{% else %}
-			<div class="container-fluid temp-margin">
+			<div class="container temp-margin">
 				<div class="row">
 					{% for post in post_list %}
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<a class="card-link text-dark" href="{% url 'writersapp:post_detail' pk=post.pk %}">
-							<div class="card post-text card-outline-danger mt-3">
+							<div class="card border-0 gradient text-dark post-text card-outline-danger mt-3">
 								<div class="card-body">
 									<div class="card-title">
-										<p class="text-muted default_text">{{post.created_date|timesince }} since created</p>
+										<p class="default_text">{{post.created_date|timesince }} since created</p>
 										<h5><b>{{ post.title }}</b></h5>
 									</div>
 									<hr>
 									<p class="card-text">{{ post.text|truncatechars:250 }}</p>
-									<small class="card-text text-muted text-capitalize"> {{ post.author }} {{ post.created_date|date:'D m, Y' }}</small>
+									<small class="card-text text-capitalize"> {{ post.author }} {{ post.created_date|date:'D m, Y' }}</small>
 								</div>
 							</div>
 						</a>

@@ -4,10 +4,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				{% if post.pub_date %}
-				<h1 class="text-info">{{ object.title }}</h1>
-				<p class="text-justify">{{ object.detail_html }}</p>
-				{% else %}
+				{% if post.pub_date and post.author == user %}
+				<h1 class="text-info">{{ post.title }}</h1>
+				<p class="text-justify">{{ post.detail }}</p>
+				{% elif post.author == user %}
 				<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
 					<div class="form-group">
 						<input type="text" class="form-control" value="{{ post.title }}" name="title">

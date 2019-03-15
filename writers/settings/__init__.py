@@ -1,7 +1,10 @@
 from .base import *
-from .production import *
 
 try:
-	from .production import *
+	if DEBUG:
+		from .local_settings import *
+	else:
+		from .production import *
+
 except:
 	pass
