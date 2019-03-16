@@ -52,11 +52,11 @@
 		<div class="row">
 			<div class="col-sm-8">
 				{% for post in all_post %}
-					<div class="media text-muted mb-4">
-						<div class="media-body">
+					<div class="media mb-4">
+						<div class="media-body text-muted">
 							<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
 							<h6 class="text-dark"><strong>{{ post.title }}</strong></h6>
-							<small class="text-muted">{{ post.detail|truncatechars:150 }} <br><i class="fa fa-ellipsis-h float-right px-2"></i><i class="fa fa-bookmark-o float-right"></i><span class="text-dark">{{ post.author|capfirst }}</span><br>{{ post.pub_date|date:"M d" }}</small>
+							<small class="">{{ post.detail|truncatechars:150 }} <br><i class="fa fa-ellipsis-h fa-size float-right px-2"></i><i class="fa fa-bookmark-o fa-size float-right"></i><span class="text-dark">{{ post.author|capfirst }}</span><br>{{ post.pub_date|date:"M d" }} - 5 min read <i class="fa fa-star pl-2"></i></small>
 						</div>
 						<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
 					</div>
