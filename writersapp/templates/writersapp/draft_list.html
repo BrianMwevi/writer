@@ -14,26 +14,33 @@
 						</div>
 					</div>
 					{% if latest_post %}
-						<div class="container bg-light p-2 temp-margin">
+						<div class="container p-2 temp-margin">
 							<h4 class="py-4">Your latest stories</h4>
 							<div class="row">
-								{% for post in latest_post %}
-									<div class="col-md-4 text-left">
-										<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-dark">
-											<div class="card">
-												<div class="card-header gradient">
-													<h5>{{ post.title }}</h5>
+								<div class="col-sm-10 mx-auto text-left">
+									{% for post in latest_post %}
+										<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link m-0">
+											<div class="media mb-2 bg-light">
+												<div class="media-body pl-4 pt-3 text-muted">
+													<h6 class="text-dark"><strong>{{ post.title }}</strong></h6>
+													<small>{{ post.detail|truncatechars:180 }}<br><span class="text-dark">Published on - {{ post.pub_date|date:"M d" }}</span></small>
 												</div>
-												<div class="card-body">
-													<p>{{ post.detail|truncatechars:100 }}</p>
-												</div>
-												<div class="card-footer">
-													<small class="card-text text-muted">Published on {{ post.pub_date|date:'M d, Y' }}</small>
-												</div>
+												<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
 											</div>
 										</a>
+									{% endfor %}
+								</div>
+							</div>
+							</div>
+						</div>
+					{% else %}
+						<div class="container bg-light p-2 temp-margin">
+							<div class="jumbotron bg-transparent">
+								<div class="row">
+									<div class="col-md-12">
+										<h4 class="py-4">Your latest stories will appear here</h4>
 									</div>
-								{% endfor %}
+								</div>
 							</div>
 						</div>
 					{% endif %}
@@ -44,7 +51,7 @@
 				<div class="row">
 					<div class="col-sm-8 mx-auto">
 						{% for post in post_list %}
-							<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link">
+							<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link m-0">
 								<div class="media mb-2 bg-light">
 									<div class="media-body pl-4 pt-3 text-muted">
 										<h6 class="text-dark"><strong>{{ post.title }}</strong></h6>

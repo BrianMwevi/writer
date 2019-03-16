@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				{% if post.pub_date and post.author == user %}
+				{% if post.pub_date and post.author_id == user.id %}
 				<h1 class="text-info">{{ post.title }}</h1>
 				<p class="text-justify">{{ post.detail }}</p>
 				{% elif post.author == user %}

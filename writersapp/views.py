@@ -16,7 +16,7 @@ class PostListView(PermissionRequiredMixin, ListView):
 	def get_context_data(self, **kwargs):
 		all_post = Post.objects.all()
 		context = super().get_context_data(**kwargs)
-		context["user_pub_posts"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=False)
+		context["user_pub_posts"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=False).order_by("-pub_date")
 		context["user_draft"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
 		context["rand_post"] = all_post.filter(pub_date__isnull=False).order_by("-pub_date")[:3]
 		context["all_post"] = all_post.filter(pub_date__isnull=False).order_by("-pub_date")[3:]
