@@ -26,7 +26,7 @@
 
 
 .gradient {
-	background:linear-gradient(to left,rgba(126, 213, 111, .7),rgba(40, 180, 133, .7));
+	background:linear-gradient(to left,rgba(126, 213, 111, .2),rgba(40, 180, 133, .2));
 }
 
 .btn-custom {

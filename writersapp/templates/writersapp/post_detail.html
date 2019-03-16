@@ -17,6 +17,9 @@
 					</div>
 					<button type="submit" class="btn btn-custom text-dark">Publish</button>
 				</form>
+				{% else %}
+				<h1 class="text-info">{{ post.title }}</h1>
+				<p class="text-justify">{{ post.detail }}</p>
 				{% endif %}
 				
 			</div>

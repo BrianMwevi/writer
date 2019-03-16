@@ -27,7 +27,7 @@
 												<p>{{ post.detail|truncatechars:100 }}</p>
 											</div>
 											<div class="card-footer">
-												<small class="card-text text-muted">Published on {{ post.pub_date|date:'D m, Y' }}</small>
+												<small class="card-text text-muted">Published on {{ post.pub_date|date:'M d, Y' }}</small>
 											</div>
 										</div>
 										</a>
@@ -47,12 +47,13 @@
 							<div class="card border-0 gradient text-dark post-text card-outline-danger mt-3">
 								<div class="card-body">
 									<div class="card-title">
-										<p class="default_text">{{post.created_date|timesince }} since created</p>
 										<h5><b>{{ post.title }}</b></h5>
 									</div>
+									<div class="card-text">
+										<small>{{ post.detail|truncatechars:75 }}</small>
+									</div>
 									<hr>
-									<p class="card-text">{{ post.text|truncatechars:250 }}</p>
-									<small class="card-text text-capitalize"> {{ post.author }} {{ post.created_date|date:'D m, Y' }}</small>
+									<small class="card-text text-capitalize"> {{ post.author }} - {{ post.created_date|date:'D m, Y' }}</small>
 								</div>
 							</div>
 						</a>
