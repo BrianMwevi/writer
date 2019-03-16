@@ -1,64 +1,56 @@
 {% extends "base.html" %}
+{% load static %}
 {% block body_block %}
 
 		{% if not post_list %}
 			<div class="container temp-margin">
-				<div class="text-center">
-					<div class="jumbotron">
-						<div class="row">
-							<div class="col-md-12">
-								<h2 class="py-4">No Drafts</h2>
-								<a href="{% url 'post_create' %}"><button class="btn btn-info">New Story</button></a>
-							</div>
+				<div class="jumbotron text-center">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="py-4">No Drafts</h2>
+							<a href="{% url 'post_create' %}"><button class="btn btn-info">New Story</button></a>
 						</div>
 					</div>
-					{% if latest_post %}
-						<div class="container bg-light p-2 temp-margin">
-							<h4 class="py-4">Your latest stories</h4>
-							<div class="row">
-								{% for post in latest_post %}
-									<div class="col-md-4 text-left">
-										<a href="{% url 'post_detail' pk=post.pk %}" class="card-link text-dark">
-											<div class="card">
-											<div class="card-header  bg-info">
-												<h5>{{ post.title }}</h5>
-											</div>
-											<div class="card-body">
-												<p>{{ post.text|truncatechars:100 }}</p>
-											</div>
-											<div class="card-footer">
-												<small class="card-text text-muted">Published on {{ post.published_date|date:'D m, Y' }}</small>
-											</div>
-										</div>
-										</a>
-									</div>
-								{% endfor %}
-							</div>
-						</div>
-					{% endif %}
 				</div>
+				{% if latest_post %}
+					<div class="container bg-light p-2 temp-margin">
+						<h4 class="py-4">Your latest stories</h4>
+						<div class="row">
+							{% for post in latest_post %}
+								<div class="col-md-4 text-left">
+									<a href="{% url 'post_detail' pk=post.pk %}" class="card-link text-dark">
+										<div class="card">
+										<div class="card-header  bg-info">
+											<h5>{{ post.title }}</h5>
+										</div>
+										<div class="card-body">
+											<p>{{ post.text|truncatechars:100 }}</p>
+										</div>
+										<div class="card-footer">
+											<small class="card-text text-muted">Published on {{ post.published_date|date:'D m, Y' }}</small>
+										</div>
+									</div>
+									</a>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
 			</div>
 		{% else %}
 			<div class="container temp-margin">
 				<div class="row">
-					{% for post in post_list %}
-					<div class="col-sm-4">
-						<a class="card-link text-dark" href="{% url 'writersapp:post_detail' pk=post.pk %}">
-							<div class="card border-0 gradient text-dark post-text card-outline-danger mt-3">
-								<div class="card-body">
-									<div class="card-title">
-										<h5><strong>{{ post.title }}</strong></h5>
-									</div>
-									<div class="card-text">
-										<small>{{ post.detail|truncatechars:75 }}</small>
-									</div>
-									<hr>
-									<small class="card-text text-capitalize"> {{ post.author }} - {{ post.created_date|date:'D m, Y' }}</small>
+					<div class="col-sm-8 mx-auto">
+						{% for post in post_list %}
+							<div class="media mb-2 bg-light">
+								<div class="media-body pl-4 pt-3 text-muted">
+									<h6 class="text-dark"><strong>{{ post.title }}</strong></h6>
+									<small>{{ post.detail|truncatechars:180 }}<br><span class="text-dark">Published - {{ post.pub_date|date:"M d" }}</span></small>
 								</div>
+								<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
 							</div>
-						</a>
+						{% endfor %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		{% endif %}

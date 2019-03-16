@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block body_block %}
 
 		{% if not post_list %}
@@ -20,16 +21,16 @@
 									<div class="col-md-4 text-left">
 										<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-dark">
 											<div class="card">
-											<div class="card-header gradient">
-												<h5>{{ post.title }}</h5>
+												<div class="card-header gradient">
+													<h5>{{ post.title }}</h5>
+												</div>
+												<div class="card-body">
+													<p>{{ post.detail|truncatechars:100 }}</p>
+												</div>
+												<div class="card-footer">
+													<small class="card-text text-muted">Published on {{ post.pub_date|date:'M d, Y' }}</small>
+												</div>
 											</div>
-											<div class="card-body">
-												<p>{{ post.detail|truncatechars:100 }}</p>
-											</div>
-											<div class="card-footer">
-												<small class="card-text text-muted">Published on {{ post.pub_date|date:'M d, Y' }}</small>
-											</div>
-										</div>
 										</a>
 									</div>
 								{% endfor %}
@@ -41,24 +42,19 @@
 		{% else %}
 			<div class="container temp-margin">
 				<div class="row">
-					{% for post in post_list %}
-					<div class="col-sm-4">
-						<a class="card-link text-dark" href="{% url 'writersapp:post_detail' pk=post.pk %}">
-							<div class="card border-0 gradient text-dark post-text card-outline-danger mt-3">
-								<div class="card-body">
-									<div class="card-title">
-										<h5><b>{{ post.title }}</b></h5>
+					<div class="col-sm-8 mx-auto">
+						{% for post in post_list %}
+							<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link">
+								<div class="media mb-2 bg-light">
+									<div class="media-body pl-4 pt-3 text-muted">
+										<h6 class="text-dark"><strong>{{ post.title }}</strong></h6>
+										<small>{{ post.detail|truncatechars:180 }}<br><span class="text-dark">Created on - {{ post.created_date|date:"M d" }}</span></small>
 									</div>
-									<div class="card-text">
-										<small>{{ post.detail|truncatechars:75 }}</small>
-									</div>
-									<hr>
-									<small class="card-text text-capitalize"> {{ post.author }} - {{ post.created_date|date:'D m, Y' }}</small>
+									<img src="{% static "img/home2.jpg" %}" alt="Article image" class="img-fluid" style="width:120px;height:120px;">
 								</div>
-							</div>
-						</a>
+							</a>
+						{% endfor %}
 					</div>
-					{% endfor %}
 				</div>
 			</div>
 		{% endif %}
