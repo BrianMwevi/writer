@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'writersapp',
+
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

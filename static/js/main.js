@@ -1,9 +1,21 @@
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
-    console.log("Hello world from main.js")
 });
 
 function popMenu(){
 	// alert("Clicked!")
 	$("#popupMenu").toggleClass("show")
+}
+
+function rotateSingup() {
+	$("#login").css("transform", "rotateY(-180deg)")
+	$("#signup").removeClass("form-side--back");
+	// $("#login").css("transform", "ratateY(-180deg)");
+
+}
+
+function rotateLogin() {
+	// $(".form-side--front").css("transform", "rotateY(-180deg)");
+	$("#signup").addClass("form-side--back");
+	$("#login").css("transform", "rotateY(-0)")
 }

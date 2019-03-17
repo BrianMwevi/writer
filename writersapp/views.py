@@ -9,18 +9,18 @@ from .forms import PostForm
 
 # Create your views here.
 
-class PostListView(PermissionRequiredMixin, ListView):
+class PostListView(ListView):
 	permission_required = 'home'
 	model = Post
 	template_name = 'writersapp/index.html'
 	def get_context_data(self, **kwargs):
-		all_post = Post.objects.all()
 		context = super().get_context_data(**kwargs)
-		context["user_pub_posts"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=False).order_by("-pub_date")
-		context["user_draft"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
+		all_post = Post.objects.all()
 		context["rand_post"] = all_post.filter(pub_date__isnull=False).order_by("-pub_date")[:3]
 		context["all_post"] = all_post.filter(pub_date__isnull=False).order_by("-pub_date")[3:]
-	
+		if self.request.user.is_authenticated:
+			context["user_pub_posts"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=False).order_by("-pub_date")
+			context["user_draft"] = all_post.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")			
 		return context
 
 class DraftListView(PermissionRequiredMixin, ListView):

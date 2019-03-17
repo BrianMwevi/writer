@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="{% url 'home' %}">
 				<img src="{% static "img/logoblog.png" %}" alt="Logo" style="width:90px">
@@ -39,11 +39,7 @@
 							</div>
 						</div>
 					{% else %}
-					
-						<li class="nav-item"><a href="" class="nav-link text-info">Sign up</a></li>
-						
-						<li class="nav-item"><a href="" class="nav-link text-info">Login</a></li>
-					
+						<li class="nav-item"><a href="{% url 'accounts:signup' %}" class="nav-link text-info">Register</a></li>
 					{% endif %}
 					
 				</ul>
