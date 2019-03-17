@@ -7,34 +7,34 @@
 		<div class="row">
 			<!-- SIGN UP FORM -->
 			<div class="col-sm-5 rounded form temp-margin mx-auto">
-				<div id="signup" class="form-side shadow form-side--back gradient p-5">
-					<h4 class="text-center">Sign Up</h4>				
-					<form action="{% url 'accounts:signup' %}" class="user-form" method="POST">{% csrf_token %}
-					  {% bootstrap_form form %}
-					  <div class="text-center">
-					    <input class="btn btn-success" type="submit">
-					    <p>You have an account?&nbsp;<strong class="form-link" onclick="rotateLogin()">Log in</strong></p>
-					  </div>
-					</form>
-					<div class="text-center py-1">
-						<p class="shadow">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
-							<a href="#" target="_blank" class="btn btn-md btn-success text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
-						</p>
-					</div>
-				</div>
 				<!-- LOG IN FORM -->
 				<div id="login" class="form-side shadow gradient p-5 form-side--front">
 					<h4 class="text-center">Log In</h4>				
 					<form class="user-form pt-3" action="{% url 'accounts:login' %}" method="POST">{% csrf_token %}
 					  {% bootstrap_form login_form %}
 					  <div class="text-center">
-					    <input class="btn btn-success mt-4" type="submit">
+					    <button class="btn btn-custom mt-4" type="submit">Log in</button>
 					  </div>
 					</form>
 					<div class="text-center pt-2">
-					    <p>Don't have an account?&nbsp;<strong class="form-link" onclick="rotateSingup()">Sign up</strong></p>
+					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSingup()">Sign up</label></p>
 						<p class="shadow">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
-							<a href="#" target="_blank" class="btn btn-md btn-success text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
+							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
+						</p>
+					</div>
+				</div>
+				<div id="signup" class="form-side shadow form-side--back gradient p-5">
+					<h4 class="text-center">Sign Up</h4>				
+					<form action="{% url 'accounts:signup' %}" class="user-form" method="POST">{% csrf_token %}
+						{% bootstrap_form form %}
+						<div class="text-center">
+							<button class="btn btn-custom mt-4" type="submit">Sign up</button>
+							<p>You have an account?&nbsp;<strong class="form-link" onclick="rotateLogin()">Log in</strong></p>
+						</div>
+					</form>
+					<div class="text-center py-1">
+						<p class="shadow">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
+							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 						</p>
 					</div>
 				</div>
