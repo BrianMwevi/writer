@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap4 %}
 {% block body_block%}
 <section class="temp-margin">
 	<div class="container">
@@ -21,6 +22,14 @@
 				<h1 class="text-info">{{ post.title }}</h1>
 				<p class="text-justify">{{ post.detail }}</p>
 				{% endif %}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<form action="{% url 'writersapp:comment_create' pk=post.pk %}" method="POST">{% csrf_token %}
+					{% bootstrap_form comment_form %}
+					<button class="btn btn-custom">Comment</button>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -17,19 +17,19 @@
 					  </div>
 					</form>
 					<div class="text-center pt-2">
-					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSingup()">Sign up</label></p>
-						<p class="shadow">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
+					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSingup()"><strong>Sign up</strong></label></p>
+						<p class="shadow mt-5 text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
 							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 						</p>
 					</div>
 				</div>
 				<div id="signup" class="form-side shadow form-side--back gradient p-5">
 					<h4 class="text-center">Sign Up</h4>				
-					<form action="{% url 'accounts:signup' %}" class="user-form" method="POST">{% csrf_token %}
+					<form action="{% url 'accounts:register' %}" class="user-form" method="POST">{% csrf_token %}
 						{% bootstrap_form form %}
 						<div class="text-center">
 							<button class="btn btn-custom mt-4" type="submit">Sign up</button>
-							<p>You have an account?&nbsp;<strong class="form-link" onclick="rotateLogin()">Log in</strong></p>
+							<p>You have an account?&nbsp;<label class="form-link" onclick="rotateLogin()"><strong>Log in</strong></label></p>
 						</div>
 					</form>
 					<div class="text-center py-1">

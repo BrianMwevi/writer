@@ -1,6 +1,6 @@
 from django.urls import path 
 
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, DraftListView, PostPublishView,PostPublishedview
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, DraftListView, PostPublishView,PostPublishedview, CommentView
 
 app_name = "writersapp"
 
@@ -13,4 +13,5 @@ urlpatterns = [
 	path('publish/<int:pk>/', PostPublishView.as_view(), name='post_publish'),
 	path('published/list/', PostPublishedview.as_view(), name='published'),
 	path('delete/<int:pk>/', PostDeleteView.as_view(), name='post_delete'),
+	path('comment/<int:pk>/', CommentView.as_view(), name='comment_create'),
 ]
