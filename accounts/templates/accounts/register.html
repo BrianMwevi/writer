@@ -11,7 +11,7 @@
 				<div id="login" class="form-side shadow gradient p-5 form-side--front">
 					<h4 class="text-center">Log In</h4>				
 					<form class="user-form pt-3" action="{% url 'accounts:login' %}" method="POST">{% csrf_token %}
-					  {% bootstrap_form form %}
+					  {% bootstrap_form login_form %}
 					  <div class="text-center">
 					    <button class="btn btn-custom mt-4" type="submit">Log in</button>
 					  </div>
