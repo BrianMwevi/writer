@@ -13,6 +13,6 @@ class SignUpView(CreateView):
 	template_name = 'accounts/register.html'
 	def get_context_data(self, **kwargs):
 	    context = super().get_context_data(**kwargs)
-	    context['login_form'] =  LoginForm
+	    context['form'] =  LoginForm
 	    # context['action_url'] =  LoginForm
 	    return context
