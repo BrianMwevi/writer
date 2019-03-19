@@ -24,14 +24,6 @@
 				{% endif %}
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-8">
-				<form action="{% url 'writersapp:comment_create' pk=post.pk %}" method="POST">{% csrf_token %}
-					{% bootstrap_form comment_form %}
-					<button class="btn btn-custom">Comment</button>
-				</form>
-			</div>
-		</div>
 	</div>
 </section>
 {% endblock body_block%}
