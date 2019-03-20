@@ -11,13 +11,20 @@
 				<div id="login" class="form-side shadow gradient p-5 form-side--front">
 					<h4 class="text-center">Log In</h4>				
 					<form class="user-form pt-3" action="{% url 'accounts:login' %}" method="POST">{% csrf_token %}
-					  {% bootstrap_form login_form %}
+					  	<label for="username">Username</label>
+						<div class="form-group">
+							<input type="text" class="form-control form_create" name="username" placeholder="Username" autofocus="">
+						</div>
+					  	<label for="password">Password</label>
+						<div class="form-group">
+							<input type="password" class="form-control form_create " placeholder="Password" name="password" autofocus="">
+						</div>
 					  <div class="text-center">
 					    <button class="btn btn-custom mt-4" type="submit">Log in</button>
 					  </div>
 					</form>
 					<div class="text-center pt-2">
-					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSingup()"><strong>Sign up</strong></label></p>
+					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSignup()"><strong>Sign up</strong></label></p>
 						<p class="shadow mt-5 text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
 							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 						</p>
