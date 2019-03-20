@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="{% url 'home' %}">
+			<img src="{% static "img/logoblog.png" %}" alt="Logo" style="width:90px">
+		</a>
+		<button class="navbar-toggler" data-target="#mainNav" data-toggle="collapse"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="mainNav">
+			
+			<ul class="navbar-nav ml-auto">
+
+				{% if user.is_authenticated %}					
+																	
+					<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-search"></i></a></li>
+					<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-bell-o"></i></a></li>
+					<li class="nav-item mx-2"><a href="" class="nav-link btn btn-sm btn-custom">Upgrade</a></li>
+					
+					<!-- Popup menu -->
+					<div class="list-group list-group-flush popup">
+						<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" onclick="popMenu()" style="width:40px; height:40px">
+							<div id="popupMenu" class="popup-menu">
+								<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:post_create' %}"><small>New story</small></a>
+								<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:drafts' %}"><small>Drafts</small> <span class="badge badge-info badge-pill">{{ user_draft.count }}</span></a>
+								<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:published' %}"><small>Published</small> <span class="badge badge-info badge-pill">{{ user_pub_posts.count }}</span></a>
+								<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#"><small>Settings</small></a>
+								<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'accounts:logout' %}"><small>Sign out</small></a>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link text-info">Register/Log In</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</nav>

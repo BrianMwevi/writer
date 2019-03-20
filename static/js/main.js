@@ -18,3 +18,8 @@ function rotateLogin() {
 	$("#signup").addClass("form-side--back");
 	$("#login").css("transform", "rotateY(-0)")
 }
+
+function popupCog() {
+	$("#popupEdit").toggleClass("show");
+	console.log("Clicked")
+}

@@ -22,8 +22,19 @@
 				<ul class="navbar-nav ml-auto">
 
 					{% if user.is_authenticated %}					
-																		
-						<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-search"></i></a></li>
+						{% if user == post.author %}
+							<div class="list-group list-group-flush popup">
+								<li class="nav-link mx-2"><i class="fa fa-cog fa-size" onclick="popupCog()"></i>
+									<div id="popupEdit" class="popup-menu">
+										<a class="list-group-item list-group-item-action text-left bg-light border-0" href="{% url 'writersapp:post_update' pk=post.pk %}">Edit story</a>									
+										<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#">Stats</a>
+										<a class="list-group-item list-group-item-action text-left bg-light border-0" href="#">Share link</a>
+									</div>
+								</li>
+							</div>
+							{% else %}
+						<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-search"></i></a></li>											
+						{% endif %}												
 						<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-bell-o"></i></a></li>
 						<li class="nav-item mx-2"><a href="" class="nav-link btn btn-sm btn-custom">Upgrade</a></li>
 						

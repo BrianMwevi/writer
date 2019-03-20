@@ -186,12 +186,13 @@
 
 .popup .popup-menu {
 	visibility: hidden;
-    width:250px;
+    width:200px;
     position: absolute;
     z-index: 1;
     top: 125%;
     left: 50%;
     margin-left: -80px;
+    border: 1px solid #eee;
 }
 
 .popup .show {

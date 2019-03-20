@@ -4,21 +4,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				{% if post.pub_date %}
-				<h1 class="text-info">{{ object.title }}</h1>
-				<p class="text-justify">{{ object.detail_html }}</p>
-				{% else %}
-				<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
+				<form action="{% url 'writersapp:post_update' pk=post.pk %}" method="POST">{% csrf_token %}
 					<div class="form-group">
-						<input type="text" class="form-control" value="{{ post.title }}" name="title">
+						<input type="text" class="form-control" name="title" value="{{ post.title }}">
 					</div>
-					<div class="form-group">
-						<textarea name="detail" class="form-control">{{ post.detail }}</textarea>
-					</div>
-					<button type="submit" class="btn btn-custom text-dark">Publish</button>
+					<textarea name="detail" class="form-control">{{ post.detail }}</textarea>
+					<input type="submit" class="btn btn-custom mt-3" value="Update">
 				</form>
-				{% endif %}
-				
 			</div>
 		</div>
 	</div>
