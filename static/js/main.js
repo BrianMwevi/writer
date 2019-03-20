@@ -7,10 +7,9 @@ function popMenu(){
 	$("#popupMenu").toggleClass("show")
 }
 
-function rotateSingup() {
+function rotateSignup() {
 	$("#login").css("transform", "rotateY(-180deg)")
 	$("#signup").removeClass("form-side--back");
-	// $("#login").css("transform", "ratateY(-180deg)");
 
 }
 
