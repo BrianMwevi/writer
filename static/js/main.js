@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 function popMenu(){
-	// alert("Clicked!")
+	$("#popupEdit").removeClass("show");
 	$("#popupMenu").toggleClass("show")
 }
 
@@ -21,5 +21,5 @@ function rotateLogin() {
 
 function popupCog() {
 	$("#popupEdit").toggleClass("show");
-	console.log("Clicked")
+	$("#popupMenu").removeClass("show");
 }
