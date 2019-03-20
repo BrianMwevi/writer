@@ -26,22 +26,37 @@
 					<div class="text-center pt-2">
 					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSignup()"><strong>Sign up</strong></label></p>
 						<p class="shadow mt-5 text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
-							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
+							<a href="https://github.com/BrianMwevi/writer" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 						</p>
 					</div>
 				</div>
 				<div id="signup" class="form-side shadow form-side--back gradient p-5">
 					<h4 class="text-center">Sign Up</h4>				
-					<form action="{% url 'accounts:register' %}" class="user-form" method="POST">{% csrf_token %}
-						{% bootstrap_form form %}
-						<div class="text-center">
-							<button class="btn btn-custom mt-4" type="submit">Sign up</button>
-							<p>You have an account?&nbsp;<label class="form-link" onclick="rotateLogin()"><strong>Log in</strong></label></p>
+					<form action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
+						<label for="username">Username</label>
+						<div class="form-group">
+							<input type="text" class="form-control form_create" name="username" autofocus="" placeholder="Username">
 						</div>
+						<label for="email">Email</label>
+						<div class="form-group">
+							<input type="email" class="form-control form_create" name="email" autofocus="" placeholder="example@gmail.com">
+						</div>
+						<label for="password1">Password</label>
+						<div class="form-group">
+							<input type="password" class="form-control form_create" name="password1" autofocus="" placeholder="Password">
+						</div>
+						<label for="password2">Conform password</label>
+						<div class="form-group">
+							<input type="password" class="form-control form_create" name="password2" autofocus="" placeholder="Confirm password">
+						</div>
+						<div class="text-center">
+					    <button class="btn btn-custom mt-4" type="submit">Log in</button>
+					  </div>
 					</form>
-					<div class="text-center py-1">
-						<p class="shadow">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
-							<a href="#" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
+					<div class="text-center">
+					    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateLogin()"><strong>Sign up</strong></label></p>
+						<p class="shadow text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
+							<a href="https://github.com/BrianMwevi/writer" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 						</p>
 					</div>
 				</div>
