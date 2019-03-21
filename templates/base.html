@@ -22,6 +22,20 @@
 				<ul class="navbar-nav ml-auto">
 
 					{% if user.is_authenticated %}					
+						{% if post.draft %}
+							
+							<li class="nav-item mx-2">
+								<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
+									<button class="btn btn-sm btn-custom">Ready to publish?</button>
+								</form>
+							</li>
+							<div class="list-group list-group-flush popup">
+								<li class="nav-link mx-2"><i class="fa fa-ellipsis-h"></i>
+									
+								</li>
+								
+							</div>
+						{% else %}
 						{% if user == post.author %}
 							<div class="list-group list-group-flush popup">
 								<li class="nav-link mx-2"><i class="fa fa-cog fa-2x" onclick="popupCog()"></i>
@@ -32,12 +46,15 @@
 									</div>
 								</li>
 							</div>
-							{% else %}
-						<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-search"></i></a></li>											
-						{% endif %}												
+						{% else %}
+							<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-search"></i></a></li>											
+						{% endif %}		
+						{% endif %}
 						<li class="nav-item mx-2"><a href="" class="nav-link"><i class="fa fa-bell-o"></i></a></li>
-						<li class="nav-item mx-2"><a href="" class="nav-link btn btn-sm btn-custom">Upgrade</a></li>
-						
+						{% if not post.draft %}
+							<li class="nav-item mx-2"><a href="" class="nav-link btn btn-sm btn-custom">Upgrade</a></li>
+						{% endif %}
+
 						<!-- Popup menu -->
 						<div class="list-group list-group-flush popup">
 							<img src="{% static "img/brianmwevi.jpg" %}" class="img-fluid rounded-circle" alt="Brian Mwevi" onclick="popMenu()" style="width:40px; height:40px">

@@ -56,6 +56,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user 
+		form.instance.draft = True
 		return super().form_valid(form)
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
@@ -73,6 +74,7 @@ class PostPublishView(LoginRequiredMixin, UpdateView):
 	def form_valid(self,form):
 		
 		form.instance.pub_date = timezone.now()
+		form.instance.draft = False
 		return super().form_valid(form)
 class PostPublishedview(ListView):
 	# login_required = 'home'

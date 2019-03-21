@@ -18,6 +18,7 @@ class Post(models.Model):
 	detail_html = models.TextField(default="")
 	created_date = models.DateTimeField(default=timezone.now)
 	pub_date = models.DateTimeField(null=True, blank=True)
+	draft = models.BooleanField(default=False)
 
 
 	def save(self, *args, **kwargs):
