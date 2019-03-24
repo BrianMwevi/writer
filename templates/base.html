@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="{% static "css/style.css" %}">
 	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static "css/medium-editor.min.css" %}">
+	<link rel="stylesheet" href="{% static "css/default.min.css" %}">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -23,7 +25,6 @@
 
 					{% if user.is_authenticated %}					
 						{% if post.draft %}
-							
 							<li class="nav-item mx-2">
 								<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
 									<button class="btn btn-sm btn-custom">Ready to publish?</button>
@@ -116,11 +117,24 @@
 
 	<script src="{% static "js/main.js" %}"></script>
 
+	<script src="{% static "js/medium-editor.min.js" %}"></script>
+
+
 	<script>
 
 		// using jQuery
-
 		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+		var editor = new MediumEditor('.editable',{
+			 placeholder: {
+        /* This example includes the default options for placeholder,
+           if nothing is passed this is what it used */
+		        text: 'Hello world',
+		        hideOnClick: true
+	    	}
+		});
+		var elements = document.querySelectorAll('.editable'),
+	    editor = new MediumEditor(elements);
+
 
 	</script>
 

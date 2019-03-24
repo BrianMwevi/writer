@@ -1,8 +1,8 @@
 .home-bg {
     background-image: linear-gradient(to right bottom, rgba(0,0,0, .3), rgba(0,0,0, .3)), url(../img/home2.jpg);
 	background-attachment: fixed;
-	background-position: center center;
-	background-size: cover;
+/*	background-position: center center;
+*/	background-size: cover;
 	max-width: 100%;
 	/*height: auto;*/
 	position: relative;

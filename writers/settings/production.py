@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'writersapp',
 
     'bootstrap4',
+    'mediumeditor',
 ]
 
 MIDDLEWARE = [
