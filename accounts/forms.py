@@ -6,16 +6,16 @@ class SignupForm(UserCreationForm):
 	
 	class Meta:
 		model = get_user_model()
-		fields = ('username', 'email', 'password1', 'password2')
+		fields = ('username', 'email')
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
-		field_class = "form-control,btn-custom, form_create"
+		field_class = "form-control, form_create"
 		self.fields['username'].widget.attrs.update({"placeholder": "Username", "id":"id_signup", "class": field_class})
 		self.fields['email'].widget.attrs.update({"required":True,"placeholder": "example@gmail.com","class": field_class})
 		self.fields['password1'].widget.attrs.update({"placeholder": "Password","class": field_class})
 		self.fields['password2'].widget.attrs.update({"placeholder": "Confirm password","class": field_class})
-		for fieldname in ['username', 'password1', 'password2']:
+		for fieldname in ['username', 'email','password1', 'password2']:
 			self.fields[fieldname].help_text = None
 
 class LoginForm(AuthenticationForm):

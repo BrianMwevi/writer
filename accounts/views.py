@@ -24,31 +24,17 @@ def register(request):
 		if request.POST.get("email"):
 			form = SignupForm(data=request.POST)
 			if form.is_valid():
-				
-				user = form.save()
-				user.set_password(user.password)
-				user.save()
+				user = form.save()	
 				return HttpResponseRedirect(reverse_lazy("accounts:register"))
 			else:
 				signup_form = form
-				print("Signup False")
-				print(signup_form.errors)
 				is_user = False
-				# if form.errors:
-					# print(form.errors)
-					# print("Signup is False")
-					# signup_form = SignupForm()
-					# print(signup_form)
-					# return render(request, 'accounts/register.html', {"login_form":login_form, "signup_form":SignupForm, "is_user":is_user})
-			print(is_user)
-
 		else:
 			form = LoginForm(data=request.POST)
 			if form.is_valid():
 				username = request.POST.get("username")
 				password = request.POST.get("password")
-				user = authenticate(request, username=username, password=password)
-				print("Login if True")
+				user = authenticate(username=username, password=password)
 
 				if user is not None:
 					# if user.is_active:
@@ -58,6 +44,4 @@ def register(request):
 					print(user)
 			if form.errors:
 				login_form = form
-				print("Login if False")
-	# print(signup_form)
 	return render(request, 'accounts/register.html', {"login_form":login_form, "signup_form":signup_form, "is_user":is_user})
