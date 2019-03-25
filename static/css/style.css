@@ -227,7 +227,7 @@
 	position: absolute;
     transition: all 10.8s ease;
     width: 100%;
-    height: 39rem;
+    height: 41rem;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -255,3 +255,6 @@
 /*.form:hover .form-side--back{
 	transform: rotateY(0);
 }*/
+.errorlist {
+	display: none !important;
+}

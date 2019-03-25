@@ -5,7 +5,6 @@
 	<section class="home-bg">
 		<div class="container">
 			<div class="row">
-				<!-- SIGN UP FORM -->
 				<div class="col-sm-5 rounded form temp-margin mx-auto">
 					<!-- LOG IN FORM -->
 					<div id="login" class="form-side shadow gradient p-5 {% if is_user %}
@@ -14,29 +13,14 @@
 						form-side--back
 					{% endif %}">
 						<h4 class="text-center">Log In</h4>				
-						<!--<form class="user-form pt-3" action="{% url 'accounts:login' %}" method="POST">{% csrf_token %}
-						  	<label for="username">Username</label>
-							<div class="form-group">
-								<input type="text" class="form-control form_create" name="username" placeholder="Username" autofocus="" required="">
-							</div>
-						  	<label for="password">Password</label>
-							<div class="form-group">
-								<input type="password" class="form-control form_create " placeholder="Password" name="password" autofocus="" required="">
-							</div>
-						  <div class="text-center">
-						    <button class="btn btn-custom mt-4" type="submit">Log in</button>
-						  </div>
-						</form>-->
-							<form id="loginForm" action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
-							{% bootstrap_form login_form %}
-							{% if form.errors %}
-								<h1>Login form errors</h1>
-							{% endif %}
-							
-							<div class="text-center">
-							<button class="btn btn-custom" type="submit">Log in</button>
-								
-							</div>
+						<form id="loginForm" action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
+						{% bootstrap_form login_form %}
+						{% if form.errors %}
+							<h1>Login form errors</h1>
+						{% endif %}
+						<div class="text-center">
+						<button class="btn btn-custom" type="submit">Log in</button>
+						</div>
 						</form>
 						<div class="text-center pt-2">
 						    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSignup()"><strong>Sign up</strong></label></p>
@@ -45,33 +29,13 @@
 							</p>
 						</div>
 					</div>
+					<!-- SINGUP FORM -->
 					<div id="signup" class="form-side shadow {% if is_user %}
 						form-side--back
-					{% else %}
-						form-side--front
-					{% endif %} gradient p-5">
+						{% else %}
+							form-side--front
+						{% endif %} gradient p-5">
 						<h4 class="text-center">Sign Up</h4>				
-						<!--<form action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
-							<label for="username">Username</label>
-							<div class="form-group">
-								<input type="text" class="form-control form_create" name="username" autofocus="" placeholder="Username" required="">
-							</div>
-							<label for="email">Email</label>
-							<div class="form-group">
-								<input type="email" class="form-control form_create" name="email" autofocus="" placeholder="example@gmail.com" required="">
-							</div>
-							<label for="password1">Password</label>
-							<div class="form-group">
-								<input type="password" class="form-control form_create" name="password1" autofocus="" placeholder="Password" required="">
-							</div>
-							<label for="password2">Conform password</label>
-							<div class="form-group">
-								<input type="password" class="form-control form_create" name="password2" autofocus="" placeholder="Confirm password" required="">
-							</div>
-							<div class="text-center">
-						    <button class="btn btn-custom mt-4" type="submit">Sign up</button>
-						  </div>
-						</form>-->
 						<form id="signupForm" action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
 							{% bootstrap_form signup_form %}
 							<div class="text-center">

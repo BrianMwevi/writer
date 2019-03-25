@@ -3,10 +3,13 @@ certifi==2018.11.29
 cffi==1.12.2
 dj-database-url==0.5.0
 Django==2.1.5
+django-appconf==1.0.3
 django-bootstrap4==0.0.7
 django-crispy-forms==1.7.2
 django-heroku==0.3.1
 django-livereload-server==0.3.2
+django-mediumeditor==1.0.0
+django-multi-form-view==2.0.1
 django-rest-framework==0.1.0
 djangorestframework==3.9.1
 fake-factory==9999.9.9

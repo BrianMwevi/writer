@@ -29,7 +29,6 @@ def register(request):
 				user.set_password(user.password)
 				user.save()
 				return HttpResponseRedirect(reverse_lazy("accounts:register"))
-
 			else:
 				signup_form = form
 				print("Signup False")
