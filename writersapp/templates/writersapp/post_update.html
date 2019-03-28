@@ -3,11 +3,11 @@
 <section class="temp-margin">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8 mx-auto">
 				<form action="{% url 'writersapp:post_update' pk=post.pk %}" method="POST">{% csrf_token %}
 					<div class="form-group">
 						<h1><textarea name="title" cols="30" class="title_form form_create pb-5 editable  medium-editor-textarea" data-placeholder="Title" rows="10" autofocus="">{{ post.title }}</textarea></h1>
-						<textarea name="detail" cols="30" class="detail-form form_create editable  medium-editor-textarea" rows="10" placeholder="Type your text">{{ post.detail }}</textarea>
+						<textarea name="detail" cols="30" class="detail-form text-justify form_create editable  medium-editor-textarea" rows="10" placeholder="Type your text">{{ post.detail }}</textarea>
 						<button class="btn btn-custom" type="submit">Update</button>
 					</div>
 				</form>

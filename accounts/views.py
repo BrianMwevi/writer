@@ -18,7 +18,7 @@ class SignUpView(CreateView):
 
 def register(request):
 	if request.user.is_active:
-		return HttpResponseRedirect(reverse_lazy("home"))
+		return HttpResponseRedirect("home")
 	login_form = LoginForm()
 	signup_form = SignupForm()
 	is_user = True
