@@ -13,7 +13,7 @@ import misaka
 
 class Post(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	title = models.CharField(max_length=100)
+	title = models.TextField(max_length=100)
 	detail = models.TextField(default="")
 	detail_html = models.TextField(default="")
 	created_date = models.DateTimeField(default=timezone.now)

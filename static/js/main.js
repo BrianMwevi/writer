@@ -3,6 +3,8 @@ var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
     // loginUser()
+	testing()
+
 });
 
 function popMenu(){
@@ -89,4 +91,18 @@ function csrfSafeMethod(method) {
 	        alert("Form errors")
 	    },
 	})
+ }
+
+ function testing() {
+ 	$(".title_form").keypress(function(e){
+ 		var keycode = (e.keyCode ? e.keyCode : e.which);
+	    if (keycode == '13') {
+	 		e.preventDefault()
+	 		$(this).blur()
+	 		$(".detail-form").focus()
+
+	    	console.log("Enter pressed")
+	    }
+
+	 })
  }

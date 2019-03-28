@@ -88,6 +88,7 @@
 	border: 0;
 	background: rgba(255, 255, 255, 1);
 	color: #000;
+	outline: none;
 }
 
 .hide {
@@ -257,4 +258,8 @@
 }*/
 .errorlist {
 	display: none !important;
+}
+
+.detail-form {
+	font-size: 1.5rem;
 }
