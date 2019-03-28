@@ -5,23 +5,27 @@
 <section class="temp-margin">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-9 mx-auto">
 				{% if post.pub_date and post.author_id == user.id %}
-				<h1 class="text-info">{{ post.title }}</h1>
-				<p class="text-justify">{{ post.detail }}</p>
+				<div class="form_create">
+					<h1><textarea data-disable-toolbar="true" class="editable" data-disable-editing="false">{{ post.title}} </textarea></h1>
+					<!-- <input name="detail" class="detail-form form_create" placeholder="Type your text" value="{{ post.detail }} sd;lfjsd;flsdjfs;ld"> -->
+					<textarea name="detail" data-disable-toolbar="true" cols="30" class="detail-form form_create editable" rows="10" placeholder="Type your text" data-disable-editing="false">{{ post.detail }}</textarea>
+				</div>	
+
 				{% elif post.author == user %}
 				<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
 					<div class="form-group">
-						<input type="text" class="form-control" value="{{ post.title }}" name="title">
+						<h1><textarea name="title" cols="30" class="title_form form_create pb-5 editable" data-placeholder="Title" rows="10" autofocus="">{{ post.title }}</textarea></h1>
+						<textarea name="detail" cols="30" class="detail-form form_create editable" rows="10" placeholder="Type your text">{{ post.detail }}</textarea>
 					</div>
-					<div class="form-group">
-						<textarea name="detail" class="form-control">{{ post.detail }}</textarea>
-					</div>
-					<button type="submit" class="btn btn-custom text-dark">Publish</button>
+					<button class="btn btn-custom" type="submit">Publish</button>
 				</form>
 				{% else %}
-				<h1 class="text-info">{{ post.title }}</h1>
+				<div class="editable">
+					<h1 class="text-info">{{ post.title }}</h1>
 				<p class="text-justify">{{ post.detail }}</p>
+				</div>
 				{% endif %}
 			</div>
 		</div>

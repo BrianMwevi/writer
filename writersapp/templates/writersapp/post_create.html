@@ -8,8 +8,8 @@
 				
 				<form action="{% url 'writersapp:post_create' %}"  method="POST"> {% csrf_token %}
 					<div class="form-group">
-						<h1><textarea name="title" cols="30" class="title_form form_create pb-5 editable  medium-editor-textarea" data-placeholder="Title" rows="10" autofocus=""></textarea></h1>
-						<textarea name="detail" cols="30" class="detail-form form_create editable  medium-editor-textarea" rows="10" placeholder="Type your text"></textarea>
+						<h1><textarea name="title" cols="30" class="title_form form_create pb-5 editable  medium-editor-textarea" data-placeholder="Title" rows="10" autofocus="" required=""></textarea></h1>
+						<textarea name="detail" cols="30" class="detail-form form_create editable  medium-editor-textarea" rows="10" placeholder="Type your text" required=""></textarea>
 					</div>
 					<button class="btn btn-custom" type="submit">Test</button>
 				</form>

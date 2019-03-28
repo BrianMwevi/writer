@@ -69,6 +69,7 @@
 							</div>
 						</div>
 					{% else %}
+					<h1>User is active {{ user.is_active }}</h1>
 						<li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link text-info">Register/Log In</a></li>
 					{% endif %}
 					
@@ -125,12 +126,9 @@
 		// using jQuery
 		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 		var editor = new MediumEditor('.editable',{
-			 // placeholder: {
-    //      This example includes the default options for placeholder,
-    //        if nothing is passed this is what it used 
-		  //       text: 'Title',
-		  //       hideOnClick: true
-	   //  	}
+			 disableDoubleReturn: {
+         		default:true
+	    	},
 		});
 		// var elements = document.querySelectorAll('.editable'),
 	 //    editor = new MediumEditor(elements);
