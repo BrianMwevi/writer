@@ -8,8 +8,8 @@
 				
 				<form action="{% url 'writersapp:post_create' %}"  method="POST"> {% csrf_token %}
 					<div class="form-group">
-						<h1><textarea class="title_form form_create pb-5 editable medium-editor-textarea" name="title" autofocus="" cols="30" rows="10"></textarea></h1>
-						<h4><textarea class="detail-form form_create pb-5 editable medium-editor-textarea medium-editor-element" name="detail" cols="30" rows="10"></textarea></h4>
+						<h1><textarea class="title_form form_create" name="title" autofocus="" placeholder="Title"></textarea></h1>
+						<h4><textarea class="detail-form form_create" name="detail" placeholder="Tell your story..."></textarea></h4>
 					</div>
 
 					<button class="btn btn-custom" type="submit">Test</button>
@@ -18,3 +18,4 @@
 		</div>
 	</div>
 {% endblock body_block %}
+<div class="title_form form_create pb-5 editable medium-editor-textarea medium-editor-element" id="medium-editor-1554217735879" autofocus="" cols="30" data-placeholder="Title" name="title" rows="10" medium-editor-textarea-id="medium-editor-1554217735879" contenteditable="true" spellcheck="false" data-medium-editor-element="true" role="textbox" aria-multiline="true" data-medium-editor-editor-index="1" medium-editor-index="4f09063e-e4da-b19c-e2a6-9355295fccd0" data-gramm_id="3dacd039-1c8d-9105-9f69-697065018a8b" data-gramm="true" data-gramm_editor="true" data-medium-focused="true"><p>This is copied from Medium. Nothing to do with ownership</p></div>

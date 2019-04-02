@@ -262,4 +262,28 @@
 
 .detail-form {
 	font-size: 1.2rem;
+	width: 100%;
+	height: 32px;
+	/*resize: none;*/
 }
+
+textarea {
+	resize: none;
+	overflow: auto;
+}
+
+.title_form {
+	width: 100%;
+	/*resize: none;*/
+}
+
+.title_form::placeholder {
+	color: #A9A9A9;
+	font-size: 2.5rem;
+}
+
+.detail-form::placeholder {
+	color: #A9A9A9;
+	font-size: 1.3rem;
+}
+

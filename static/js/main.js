@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
     // loginUser()
 	testing()
+	autoExpand()
 
 });
 
@@ -113,3 +114,15 @@ $("#submitForm").submit(function(event){
 	// console.log("Form submitted!");
 	console.log(formData);
 })
+
+function autoExpand() {
+		$(".detail-form").keypress(function(e){
+ 		var keycode = (e.keyCode ? e.keyCode : e.which);
+	    if (keycode == '13') {
+	    	var formHeight = $(this).css("height").split("px")[0];
+	    	var newHeight = +formHeight + +30;
+	    	console.log(newHeight + "px")
+	    	$(".detail-form").css("height", newHeight + "px");
+	    }
+	 })
+}
