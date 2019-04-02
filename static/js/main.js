@@ -106,3 +106,10 @@ function csrfSafeMethod(method) {
 
 	 })
  }
+
+$("#submitForm").submit(function(event){
+	event.preventDefault();
+	var formData = $(this).serialize();
+	// console.log("Form submitted!");
+	console.log(formData);
+})
