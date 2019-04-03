@@ -11,7 +11,6 @@
 						<textarea readonly="true" class="title_form form_create pt-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
 						<textarea readonly="true" id="detail_form" class="detail-form form_create pt-3" name="detail" required="">{{ post.detail }}</textarea>
 					{% elif post.created_date and not post.pub_date %}
-						<h1>Post is from Draft</h1>
 						<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
 							<div class="form-group">
 								<textarea class="title_form form_create p-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
