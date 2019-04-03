@@ -248,33 +248,27 @@
 	transform:scale(1.1);
 
 }
-/*
-.form .form-side--front{
-	transform: rotateY(-180deg);
-}*/
 
-/*.form:hover .form-side--back{
-	transform: rotateY(0);
-}*/
 .errorlist {
 	display: none !important;
 }
 
 .detail-form {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	width: 100%;
-	height: 32px;
-	/*resize: none;*/
 }
 
 textarea {
 	resize: none;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .title_form {
 	width: 100%;
-	/*resize: none;*/
+	/*height: 100%;*/
+	font-size: 2.5rem;
+	line-height: 3rem;
+	font-weight: bold;
 }
 
 .title_form::placeholder {

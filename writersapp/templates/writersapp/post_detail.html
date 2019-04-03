@@ -6,26 +6,23 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-9 mx-auto">
-				{% if post.pub_date and post.author_id == user.id %}
-				<div class="form_create">
-					<h1><textarea data-disable-toolbar="true" class="editable" data-disable-editing="false">{{ post.title}} </textarea></h1>
-					<!-- <input name="detail" class="detail-form form_create" placeholder="Type your text" value="{{ post.detail }} sd;lfjsd;flsdjfs;ld"> -->
-					<textarea name="detail" data-disable-toolbar="true" cols="30" class="detail-form text-justify form_create editable" rows="10" placeholder="Type your text" data-disable-editing="false">{{ post.detail }}</textarea>
-				</div>	
-
-				{% elif post.author == user %}
-				<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
-					<div class="form-group">
-						<h1><textarea name="title" cols="30" class="title_form form_create pb-5 editable" data-placeholder="Title" rows="10" autofocus="">{{ post.title }}</textarea></h1>
-						<textarea name="detail" cols="30" class=" text-justify detail-form form_create editable" rows="10" placeholder="Type your text">{{ post.detail }}</textarea>
-					</div>
-					<button class="btn btn-custom" type="submit">Publish</button>
-				</form>
-				{% else %}
-				<div class="editable">
-					<h1 class="text-info">{{ post.title }}</h1>
-				<p class="text-justify">{{ post.detail }}</p>
-				</div>
+				{% if post.author_id == user.id %}
+					{% if post.pub_date %}
+						<textarea readonly="true" class="title_form form_create pt-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
+						<textarea readonly="true" id="detail_form" class="detail-form form_create pt-3" name="detail" required="">{{ post.detail }}</textarea>
+					{% elif post.created_date and not post.pub_date %}
+						<h1>Post is from Draft</h1>
+						<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
+							<div class="form-group">
+								<textarea class="title_form form_create p-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
+								<textarea id="detail_form" class="detail-form form_create p-3" name="detail" required="">{{ post.detail }}</textarea>
+							</div>
+							<button class="btn btn-custom" type="submit">Publish</button>
+						</form>
+					{% endif %}
+				{% elif post.created_date and post.pub_date%}
+					<textarea readonly="true" class="title_form form_create pt-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
+					<textarea readonly="true" id="detail_form" class="detail-form form_create py-0 my-0" name="detail" required="">{{ post.detail }}</textarea>
 				{% endif %}
 			</div>
 		</div>
