@@ -21,7 +21,7 @@
 					<div class="media pb-2">
 						<a href="{% url 'writersapp:post_detail' pk=post.pk %}"><img src="{% static "img/home2.jpg" %}" alt="Col 4 image" class="img-fluid" style="width:100px; height:100px;"></a>
 						<div class="media-body text-muted pl-4">
-							<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link"><h6 class="text-dark"><strong><textarea class="editable" data-disable-editing="true" data-disable-toolbar="false">{{ post.title }}</textarea></strong></h6></a>
+							<a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link"><h6 class="text-dark"><strong>{{ post.title }}</strong></h6></a>
 							<small><a href="" class="card-link text-dark">{% if post.author.get_full_name %}{{ post.author.get_full_name|capfirst }}{% else %}{{ post.author|capfirst }}{% endif %}
 							</a> <br>{{ post.pub_date|date:"M d"}} - 10 min read<i class="pl-2 fa fa-star"></i></small>
 						</div>
@@ -53,11 +53,11 @@
 		<div class="row">
 			<div class="col-sm-8">
 				{% for post in all_post %}
-					<div class="media mb-2">
+					<div class="media mb-2 pr-3">
 						<div class="media-body text-muted">
 							<h6 class="text-uppercase">BASED ON YOUR READING HISTORY</h6>
-							<h6 class="text-dark"><strong><a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-dark "><textarea class="editable" data-disable-editing="true" data-disable-toolbar="false">{{ post.title }}</textarea></strong></h6>
-							<small class=""><a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-muted"><textarea class="editable" data-disable-editing="true" data-disable-toolbar="false">{{ post.detail|truncatechars:150 }}</textarea></a><br><span class="text-dark"><a href="" class="card-link text-dark">{% if post.author.get_full_name %}{{ post.author.get_full_name|capfirst }}
+							<h6 class="text-dark"><strong><a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-dark ">{{ post.title }}</strong></h6>
+							<small class=""><a href="{% url 'writersapp:post_detail' pk=post.pk %}" class="card-link text-muted">{{ post.detail|truncatechars:150 }}></a><br><span class="text-dark"><a href="" class="card-link text-dark">{% if post.author.get_full_name %}{{ post.author.get_full_name|capfirst }}
 							{% else %}
 							{{ post.author|capfirst }}
 							{% endif %}</a></span><br>{{ post.pub_date|date:"M d" }} - 5 min read <i class="fa fa-star pl-2"></i><i class="fa fa-ellipsis-h fa-size float-right pr-4"></i><i class="fa fa-bookmark-o fa-size float-right pr-3"></i></small>
