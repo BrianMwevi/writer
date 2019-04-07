@@ -5,13 +5,9 @@
 
 		<div class="row">
 			<div class="col-sm-8 mx-auto">
-				
-				<form  action="{% url 'writersapp:post_create' %}"  method="POST"> {% csrf_token %}
-					<div class="form-group">
-						<textarea class="title_form form_create p-3" name="title" autofocus="" placeholder="Title" required=""></textarea>
-						<textarea id="detail_form" class=" form_create p-3" name="detail" required=""></textarea>
-					</div>
-
+				<form action="{% url 'writersapp:post_create' %}"  method="POST"> {% csrf_token %}
+					<input id="titleForm" class="title_form pt-5" name="title" autofocus="" placeholder="Title" required="">
+					<textarea id="detailForm" class="detail-form pt-4" name="detail" placeholder="Tell your story" required="" autofocus=""></textarea>
 					<button class="btn btn-custom" type="submit">Save</button>
 				</form>
 			</div>

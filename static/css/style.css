@@ -75,7 +75,7 @@
 
 .form_create {
 	border: none;
-	background: rgba(255, 255, 255, .7);
+	/*background: rgba(255, 255, 255, .7);*/
 }
 
 .form_create::placeholder {
@@ -253,22 +253,17 @@
 	display: none !important;
 }
 
-.detail-form {
-	font-size: 1.4rem;
-	width: 100%;
-}
-
-textarea {
-	resize: none;
-	overflow: hidden;
-}
-
 .title_form {
 	width: 100%;
-	/*height: 100%;*/
 	font-size: 2.5rem;
 	line-height: 3rem;
 	font-weight: bold;
+	height: auto;
+	border: none;
+}
+
+.title_form:focus {
+	outline: none;
 }
 
 .title_form::placeholder {
@@ -276,8 +271,22 @@ textarea {
 	font-size: 2.5rem;
 }
 
-.detail-form::placeholder {
-	color: #A9A9A9;
-	font-size: 1.3rem;
+textarea {
+	overflow: hidden;
+	
 }
 
+.detail-form {
+	width: 100%;
+	font-size: 1.4rem;
+	border: none;
+	outline:none;
+	resize: none;
+	z-index: 1;
+
+}
+
+/*.detail-form:active{
+	background: yellow;
+	color:green;
+}*/

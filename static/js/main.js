@@ -2,7 +2,7 @@ var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
-	testing()
+	// testing()
 	autoExpand()
 });
 
@@ -25,34 +25,34 @@ function popupCog() {
 	$("#popupEdit").toggleClass("show");
 	$("#popupMenu").removeClass("show");
 }
- 
-function testing() {
-	$(".title_form").keypress(function(e){
-		var keycode = (e.keyCode ? e.keyCode : e.which);
-    if (keycode == '13') {
- 		e.preventDefault()
- 		$(this).blur()
- 		$(".detail-form").focus()
-    }
-
- })
-}
 
 function autoExpand() {
-	var detail_form = document.getElementById("detail_form");
-	// var 
-
-	$(detail_form).keyup(function(e){
-		var keycode = (e.keyCode ? e.keyCode : e.which);
-		if (keycode == '13') {
-			this.style.height = (this.scrollHeight +10) + "px";
-		}
+	var detailForm = document.getElementById("detailForm");
+	var titleForm = document.getElementById("titleForm");
+	$(detailForm).keyup(function(){
+		console.log($(this).val())
 	})
-	if (detail_form.value == "") {
-		this.style.height = ("88px"); 
-		console.log("empty")
+	// $(titleForm,detailForm).keypress(function(e){
+	// 	var keycode = (e.keyCode ? e.keyCode : e.which);
+	// 	var title = this.id;
+	// 	if (keycode == '13') {
+	// 		// console.log(title)
+	// 		if (title == "titleForm") {
+	// 			e.preventDefault()
+	// 	 		$(this).blur()
+	// 	 		$(detailForm).focus()
 
-	} else {
-		$(detail_form).css("height", detail_form.scrollHeight + "px");
-	}
+	// 		}else {
+	// 			console.log(this.id)
+	// 			this.style.height = (this.scrollHeight +10) + "px";
+	// 		}
+	// 	}
+	// })
+	// if (detailForm.value == "") {
+	// 	this.style.height = ("88px"); 
+	// 	console.log("empty")
+
+	// } else {
+	// 	$(detailForm).css("height", detailForm.scrollHeight + "px");
+	// }
 }

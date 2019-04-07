@@ -10,7 +10,7 @@ from .forms import PostForm, CommentForm
 # Create your views here.
 
 class PostListView(ListView):
-	login_required = 'home'
+	login_url = "accounts:register"
 	model = Post
 	template_name = 'writersapp/index.html'
 	def get_context_data(self, **kwargs):
@@ -24,7 +24,7 @@ class PostListView(ListView):
 		return context
 
 class DraftListView(LoginRequiredMixin, ListView):
-	login_required = 'home'
+	login_url = "accounts:register"
 	template_name = 'writersapp/draft_list.html'
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -36,7 +36,6 @@ class DraftListView(LoginRequiredMixin, ListView):
 		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=True).order_by("-created_date")
 
 class PostDetailView(LoginRequiredMixin, DetailView):
-	login_required = 'home'
 	login_url = "accounts:register"
 	model = Post
 	template_name = 'writersapp/post_detail.html'
@@ -49,7 +48,7 @@ class PostDetailView(LoginRequiredMixin, DetailView):
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
-	login_required = 'home'
+	login_url = "accounts:register"
 	model = Post
 	fields = ['title', 'detail']
 	template_name = 'writersapp/post_create.html'
@@ -60,13 +59,11 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 		return super().form_valid(form)
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
-	login_required = 'home'
 	model = Post
 	fields = ['title', 'detail']
 	template_name = 'writersapp/post_update.html'
 
 class PostPublishView(LoginRequiredMixin, UpdateView):
-	# login_required = 'home'
 	model = Post
 	fields = ['title', 'detail']
 	template_name = 'writersapp/post_detail.html'
@@ -77,7 +74,6 @@ class PostPublishView(LoginRequiredMixin, UpdateView):
 		form.instance.draft = False
 		return super().form_valid(form)
 class PostPublishedview(ListView):
-	# login_required = 'home'
 	def get_queryset(self, **kwargs):
 
 		return Post.objects.filter(author__exact=self.request.user, pub_date__isnull=False)
@@ -94,7 +90,7 @@ class PostDeleteView(DeleteView):
 	pass
 
 class CommentView(LoginRequiredMixin, CreateView):
-	login_url = "accounts:registration"
+	login_url = "accounts:register"
 	model = Comment
 	form_class = CommentForm
 	template_name = 'writersapp/post_detail.html'
