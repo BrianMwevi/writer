@@ -26,33 +26,31 @@ function popupCog() {
 	$("#popupMenu").removeClass("show");
 }
 
+// Posting and updating forms
 function autoExpand() {
 	var detailForm = document.getElementById("detailForm");
 	var titleForm = document.getElementById("titleForm");
-	$(detailForm).keyup(function(){
-		console.log($(this).val())
+	$("#detailForm, #titleForm").keypress(function(e){
+		var keycode = (e.keyCode ? e.keyCode : e.which);
+		var title = this.id;
+		console.log(this.scrollHeight)
+		// Resetting forms height on content delete
+		$(this).keyup(function(e){
+			if (this.value == "") {
+				this.style.height="14px";
+				console.log(this.style.height=this.scrollHeight + "px")
+			}
+		})
+		if (keycode == '13') { // Enter
+			if (title == "titleForm") {
+				e.preventDefault();
+				// Focus the detail form
+		 		$(this).blur()
+		 		$(detailForm).focus()
+
+			}
+		} else {
+			this.style.height = (this.scrollHeight) + "px";
+		}
 	})
-	// $(titleForm,detailForm).keypress(function(e){
-	// 	var keycode = (e.keyCode ? e.keyCode : e.which);
-	// 	var title = this.id;
-	// 	if (keycode == '13') {
-	// 		// console.log(title)
-	// 		if (title == "titleForm") {
-	// 			e.preventDefault()
-	// 	 		$(this).blur()
-	// 	 		$(detailForm).focus()
-
-	// 		}else {
-	// 			console.log(this.id)
-	// 			this.style.height = (this.scrollHeight +10) + "px";
-	// 		}
-	// 	}
-	// })
-	// if (detailForm.value == "") {
-	// 	this.style.height = ("88px"); 
-	// 	console.log("empty")
-
-	// } else {
-	// 	$(detailForm).css("height", detailForm.scrollHeight + "px");
-	// }
 }

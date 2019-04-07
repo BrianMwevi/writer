@@ -258,12 +258,13 @@
 	font-size: 2.5rem;
 	line-height: 3rem;
 	font-weight: bold;
-	height: auto;
+	height: 98px;
 	border: none;
 }
 
 .title_form:focus {
 	outline: none;
+	height: 98px;
 }
 
 .title_form::placeholder {
@@ -273,6 +274,8 @@
 
 textarea {
 	overflow: hidden;
+	resize: none;
+	background: transparent;
 	
 }
 

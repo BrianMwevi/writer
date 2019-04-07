@@ -6,8 +6,8 @@
 		<div class="row">
 			<div class="col-sm-8 mx-auto">
 				<form action="{% url 'writersapp:post_create' %}"  method="POST"> {% csrf_token %}
-					<input id="titleForm" class="title_form pt-5" name="title" autofocus="" placeholder="Title" required="">
-					<textarea id="detailForm" class="detail-form pt-4" name="detail" placeholder="Tell your story" required="" autofocus=""></textarea>
+					<textarea contenteditable="true" id="titleForm" class="title_form pt-5" name="title" autofocus="" placeholder="Title" required=""></textarea>
+					<textarea contenteditable="true" id="detailForm" class="detail-form pt-4" name="detail" placeholder="Tell your story" required="" autofocus=""></textarea>
 					<button class="btn btn-custom" type="submit">Save</button>
 				</form>
 			</div>
