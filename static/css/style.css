@@ -258,13 +258,11 @@
 	font-size: 2.5rem;
 	line-height: 3rem;
 	font-weight: bold;
-	height: 98px;
-	border: none;
+	/*border: none;*/
 }
 
 .title_form:focus {
 	outline: none;
-	height: 98px;
 }
 
 .title_form::placeholder {
@@ -275,18 +273,14 @@
 textarea {
 	overflow: hidden;
 	resize: none;
-	background: transparent;
+	border: none;
+	outline: none;
 	
 }
 
 .detail-form {
 	width: 100%;
 	font-size: 1.4rem;
-	border: none;
-	outline:none;
-	resize: none;
-	z-index: 1;
-
 }
 
 /*.detail-form:active{
