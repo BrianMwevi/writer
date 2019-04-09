@@ -30,19 +30,31 @@ function popupCog() {
 function autoExpand() {
 	var detailForm = document.getElementById("detailForm");
 	var titleForm = document.getElementById("titleForm");
+	$("#detailForm, #titleForm").val(function(){
+		if (this.value == "") {
+			if (this.id == "titleForm") {
+				this.style.height="148px";
+			}else{
+				// this.style.paddingTop="98px";
+				console.log(this.id)
+			}
+		}
+	})
 	$("#detailForm, #titleForm").keypress(function(e){
 		var keycode = (e.keyCode ? e.keyCode : e.which);
-		var title = this.id;
 		console.log(this.scrollHeight)
 		// Resetting forms height on content delete
 		$(this).keyup(function(e){
 			if (this.value == "") {
-				this.style.height="14px";
+				this.style.height="98px";
 				console.log(this.style.height=this.scrollHeight + "px")
+			}
+			else {
+				this.style.height=(this.scrollHeight) + "px";
 			}
 		})
 		if (keycode == '13') { // Enter
-			if (title == "titleForm") {
+			if (this.id == "titleForm") {
 				e.preventDefault();
 				// Focus the detail form
 		 		$(this).blur()
