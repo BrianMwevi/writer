@@ -9,9 +9,9 @@
 					<!-- LOG IN FORM -->
 					<div id="login" class="form-side shadow gradient p-5 {% if is_user %}
 						form-side--front
-					{% else %}
-						form-side--back
-					{% endif %}">
+						{% else %}
+							form-side--back
+						{% endif %}">
 						<h4 class="text-center">Log In</h4>				
 						<form id="loginForm" action="{% url 'accounts:register' %}" method="POST">{% csrf_token %}
 						{% bootstrap_form login_form %}
@@ -19,12 +19,12 @@
 							<h1>Login form errors</h1>
 						{% endif %}
 						<div class="text-center">
-						<button class="btn btn-custom" type="submit">Log in</button>
+							<button class="btn btn-custom" type="submit">Log in</button>
 						</div>
 						</form>
 						<div class="text-center pt-2">
-						    <p>Don't have an account?&nbsp;<label class="form-link" onclick="rotateSignup()"><strong>Sign up</strong></label></p>
-							<p class="shadow mt-5 text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
+						    <p><a href="#" class="card-link form-link text-dark"><strong>Forgot password? <i class="fa fa-external-link"></i></strong></a><br><br> Don't have an account?&nbsp;<label class="form-link" onclick="rotateSignup()"><strong>Sign up</strong></label></p>
+							<p class="shadow mt-4 text-white">Made with <i class="fa fa-heart text-danger"></i> by <strong>Brian Mwevi</strong><br>
 								<a href="https://github.com/BrianMwevi/writer" target="_blank" class="btn btn-md btn-custom text-dark">View on GitHub <i class="fa fa-external-link"></i></a>
 							</p>
 						</div>
