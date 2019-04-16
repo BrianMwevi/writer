@@ -254,11 +254,8 @@
 }
 
 .title_form {
-	width: 100%;
-	font-size: 2.5rem;
-	line-height: 3rem;
-	font-weight: bold;
-	/*border: none;*/
+	font-size: 42px;
+	line-height: 53px;
 }
 
 .title_form:focus {
@@ -271,16 +268,19 @@
 }
 
 textarea {
+	width: 100%;
 	overflow: hidden;
 	resize: none;
 	border: none;
 	outline: none;
-	
+	background: transparent;
+	font-weight: 400px;
+	color:rgba(0,0,0,0.84);	
 }
 
 .detail-form {
-	width: 100%;
-	font-size: 1.4rem;
+	font-size: 21px;
+	line-height: 33px;
 }
 
 /*.detail-form:active{

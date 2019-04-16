@@ -5,23 +5,27 @@
 <section class="temp-margin">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-9 mx-auto">
+			<div class="col-sm-8 mx-auto">
 				{% if post.author_id == user.id %}
 					{% if post.pub_date %}
-						<textarea readonly="true" class="title_form form_create pt-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
-						<textarea readonly="true" id="detail_form" class="detail-form form_create pt-3" name="detail" required="">{{ post.detail }}</textarea>
+					<div class="article pt-3">
+						<div id="titleForm" class="title_form">{{ post.title }}</div>
+						<p id="detailForm" class="detail-form pt-3">{{ post.detail }}</p>
+					</div>
 					{% elif post.created_date and not post.pub_date %}
 						<form action="{% url 'writersapp:post_publish' pk=post.pk %}" method="POST">{% csrf_token %}
 							<div class="form-group">
-								<textarea class="title_form form_create p-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
-								<textarea id="detail_form" class="detail-form form_create p-3" name="detail" required="">{{ post.detail }}</textarea>
+								<textarea id="titleForm" class="title_form pt-5" name="title" autofocus=""  required="">{{ post.title }}</textarea>
+								<textarea id="detailForm" class="detail-form" name="detail" required="" autofocus="">{{ post.detail }}</textarea>
 							</div>
 							<button class="btn btn-custom" type="submit">Publish</button>
 						</form>
 					{% endif %}
 				{% elif post.created_date and post.pub_date%}
-					<textarea readonly="true" class="title_form form_create pt-3" name="title" autofocus="" required="">{{ post.title }}</textarea>
-					<textarea readonly="true" id="detail_form" class="detail-form form_create py-0 my-0" name="detail" required="">{{ post.detail }}</textarea>
+					<div class="article pt-3">
+						<div id="titleForm" class="title_form">{{ post.title }}</div>
+						<p id="detailForm" class="detail-form pt-3">{{ post.detail }}</p>
+					</div>
 				{% endif %}
 			</div>
 		</div>

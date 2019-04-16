@@ -2,7 +2,6 @@ var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
-	// testing()
 	autoExpand()
 });
 
@@ -28,38 +27,27 @@ function popupCog() {
 
 // Posting and updating forms
 function autoExpand() {
-	var detailForm = document.getElementById("detailForm");
-	var titleForm = document.getElementById("titleForm");
-	$("#detailForm, #titleForm").val(function(){
-		if (this.value == "") {
-			if (this.id == "titleForm") {
-				this.style.height="148px";
-			}else{
-				// this.style.paddingTop="98px";
-				console.log(this.id)
-			}
-		}
-	})
-	$("#detailForm, #titleForm").keypress(function(e){
+	var title = document.getElementById("titleForm");
+	title.style.height=(title.scrollHeight) + "px";
+	var detail = document.getElementById("detailForm");
+	detail.style.height=(detail.scrollHeight) + "px";
+	// $("#detailForm, #titleForm").css("height",scrollHeight + "px")
+	$("#detailForm, #titleForm").on("keypress keyup", function(e){
 		var keycode = (e.keyCode ? e.keyCode : e.which);
-		console.log(this.scrollHeight)
 		// Resetting forms height on content delete
-		$(this).keyup(function(e){
-			if (this.value == "") {
-				this.style.height="98px";
-				console.log(this.style.height=this.scrollHeight + "px")
-			}
-			else {
-				this.style.height=(this.scrollHeight) + "px";
-			}
-		})
+		if (this.value == "") {
+			console.log("Empty!")
+			this.style.height="98px";
+		}
+		else {
+			this.style.height=(this.scrollHeight) + "px";
+		}
 		if (keycode == '13') { // Enter
 			if (this.id == "titleForm") {
 				e.preventDefault();
 				// Focus the detail form
 		 		$(this).blur()
-		 		$(detailForm).focus()
-
+		 		$(detail).focus()
 			}
 		} else {
 			this.style.height = (this.scrollHeight) + "px";

@@ -6,8 +6,8 @@
 			<div class="col-sm-8 mx-auto">
 				<form action="{% url 'writersapp:post_update' pk=post.pk %}" method="POST">{% csrf_token %}
 					<div class="form-group">
-						<textarea class="title_form form_create p-3" name="title" autofocus="" placeholder="Title" contenteditable="false" required="">{{ post.title }}</textarea>
-						<textarea id="detail_form" class="detail-form form_create p-3" name="detail" required="">{{ post.detail }}</textarea>
+					<textarea id="titleForm" class="title_form pt-5" name="title" autofocus="" placeholder="Title" required="">{{ post.title }}</textarea>
+					<textarea id="detailForm" class="detail-form" name="detail" placeholder="Tell your story" required="" autofocus="">{{ post.detail }}</textarea>
 					</div>
 					<button class="btn btn-custom" type="submit">Publish</button>
 				</form>
