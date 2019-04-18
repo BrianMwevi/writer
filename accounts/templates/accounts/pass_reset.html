@@ -6,12 +6,12 @@
 	<div class="container temp-margin">
 		<div class="row">
 			<div class="col-sm-5 mx-auto my-5">
-				<div class="shadow gradient py-5 px-4">
+				<div class="shadow gradient py-5 px-4 rounded">
 					<h5 class="text-center pb-4">Changing password for {{ user.username|capfirst }}</h5>
 					<form id="signupForm" action="{% url 'accounts:password_change' %}" method="POST">{% csrf_token %}
 						{% bootstrap_form form %}
 						<div class="text-center">
-							<button class="btn btn-custom" type="submit">Submit</button>
+							<button class="btn btn-custom shadow mt-3" type="submit">Submit</button>
 						</div>
 					</form>
 				</div>
