@@ -13,9 +13,14 @@
 				<!-- User details -->
 				<div class="col-sm-7 bg-light text-center">
 					<div class="d-sm-none d-lg-block">
-						<h4 class="pt-3 font-weight-bold">{{ user.get_full_name }}</h4>
-						<h6 class="text-lowercase">@{{ user.first_name }}{{ user.last_name }}</h6>
+						{% if user.get_full_name %}
+							<h4 class="pt-3 font-weight-bold">{{ user.get_full_name }}</h4>
+							<h6 class="text-lowercase">@{{ user.first_name }}{{ user.last_name }}</h6>
+						{% else %}
+							<p><strong>Description</strong></p>
+						{% endif %}
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus corporis sequi, maiores distinctio reiciendis neque.</p>
+						
 					</div>
 					<div class="row py-2 pr-3">
 						<div class="col-sm-6 shadow rounded p-3 text-left">
@@ -25,7 +30,9 @@
 							<p><a href="{% url 'writersapp:published' %}" class="">Published</a><span class="ml-3 badge-pill badge-dark">{{ pub.count }}</span></p>
 						</div>
 						<div class="col-sm-6 shadow rounded p-3 text-left">
-							<p><strong>Full Name:</strong> {{ user.get_full_name }}</p>
+							{% if user.get_full_name %}
+								<p><strong>Full Name:</strong> {{ user.get_full_name }}</p>
+							{% endif %}
 							<p><strong>Username:</strong> {{ user.username }}</p>
 							<p><strong>Email:</strong> {{ user.email }}</p>
 							<p><strong>Date joined: </strong>{{ user.date_joined|date:"D m, Y" }}</p>
