@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from .forms import SignupForm, LoginForm
+from writersapp.models import Post
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseRedirect
 
 from django.contrib.auth import get_user_model, authenticate, login, logout, update_session_auth_hash
@@ -58,3 +60,17 @@ def password_change(request):
 	return render(request, 'accounts/pass_reset.html', {
 	'form': form
 		})
+
+class UserProfile(LoginRequiredMixin, ListView):
+	model = get_user_model()
+	login_url = "accounts:register"
+	success_url = "home"
+	template_name = "accounts/profile.html"
+
+	def get_context_data(self, **kwargs):
+	    context = super().get_context_data(**kwargs)
+	    context["user_posts"] = Post.objects.filter(author=self.request.user)
+	    context["drafts"] = Post.objects.filter(author=self.request.user, draft=True)
+	    context["pub"] = Post.objects.filter(author=self.request.user, draft=False)
+	    return context
+
