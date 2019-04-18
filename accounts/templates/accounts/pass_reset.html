@@ -2,14 +2,21 @@
 {% load bootstrap4 %}
 {% block body_block %}
 	
-<div class="container temp-margin">
-	<div class="row">
-		<div class="col-sm-6 mx-auto">
-			<form action="#" method="POST">{% csrf_token %}
-				{% bootstrap_form form %}
-				<button type="submit" class="btn btn-custom">Submit</button>
-			</form>
+<section class="home-bg">
+	<div class="container temp-margin">
+		<div class="row">
+			<div class="col-sm-5 mx-auto my-5">
+				<div class="shadow gradient py-5 px-4">
+					<h5 class="text-center pb-4">Changing password for {{ user.username|capfirst }}</h5>
+					<form id="signupForm" action="{% url 'accounts:password_change' %}" method="POST">{% csrf_token %}
+						{% bootstrap_form form %}
+						<div class="text-center">
+							<button class="btn btn-custom" type="submit">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</section>
 {% endblock body_block %}

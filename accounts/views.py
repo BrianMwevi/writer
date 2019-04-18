@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, ListView
-from .forms import SignupForm, LoginForm
+from .forms import SignupForm, LoginForm, ResetPasswordForm
 from writersapp.models import Post
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -47,7 +47,7 @@ def register(request):
 
 def password_change(request):
 	if request.method == 'POST':
-		form = PasswordChangeForm(request.user, request.POST)
+		form = ResetPasswordForm(request.user, request.POST)
 		if form.is_valid():
 			user = form.save()
 			update_session_auth_hash(request,user)
@@ -56,7 +56,7 @@ def password_change(request):
 		else:
 			messages.error(request, 'Please correct the error below.')
 	else:
-		form = PasswordChangeForm(request.user)
+		form = ResetPasswordForm(request.user)
 	return render(request, 'accounts/pass_reset.html', {
 	'form': form
 		})
